@@ -26,6 +26,6 @@ public class Product {
     @Basic(optional = false)
     private Double price;
 
-    private String imageUrl;
+    private String imagMALeUrl;
 
 }
