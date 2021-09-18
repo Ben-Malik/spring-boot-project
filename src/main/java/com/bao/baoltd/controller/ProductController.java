@@ -35,7 +35,7 @@ public class ProductController {
     
     @GetMapping("/index")
     public String showUserList(Model model) {
-        model.addAttribute("users", productManager.getAllProducts());
+        model.addAttribute("products", productManager.getAllProducts());
         return "index";
     }
     
@@ -55,7 +55,7 @@ public class ProductController {
         }
         
         productManager.create(product);
-        return "redirect:/index";
+        return "redirect:/products";
     }
     
     
