@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+    <a href="/index" class="navbar-brand">
+        <img th:src="@{/images/favicon.png}" height="28" alt="CoolBrand">
+    </a>
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav ">
+            <a href="/index" class="active nav-item nav-link ">Home</a>
+            <a href="/products" class="nav-item nav-link">All Products</a>
+            <a href="/addProduct" class="nav-item nav-link">New Products</a>
+            <a href="#" class="nav-item nav-link ">Orders</a>
+        </div>
+        <div class="navbar-nav ml-auto">
+            <a href="#" class="nav-item nav-link">Login</a>
+        </div>
+    </div>
+    <script>
+    	var header = document.getElementById("navbarCollapse");
+		var btns = header.getElementsByClassName("nav-item");
+		for (var i = 0; i < btns.length; i++) {
+		  btns[i].addEventListener("click", function() {
+		  var current = document.getElementsByClassName("active");
+		  if (current.length > 0) { 
+		    current[0].className = current[0].className.replace("active", "");
+		  }
+		  this.className += " active";
+		  });
+		}
+
+    </script>
+    
+</nav>
