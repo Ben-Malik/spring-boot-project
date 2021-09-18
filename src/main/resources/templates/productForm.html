@@ -5,11 +5,13 @@
     <title>BAO Teknoloji</title>
 
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" href="/css/main.css "/>
 
 </head>
 
 <body>
-<div class="container">
+<div class="container main-page ">
+	<div class="content-page">
 	<div class="centered-element">
 		<h1> Add a new Product </h1>
 	</div>
@@ -19,7 +21,7 @@
 	        <label for="name" class="col-sm-2 col-form-label">Name</label>
 
 			<div class="col-sm-10">
-			<input class="form-control" type="text" th:field="*{name}" id="name" placeholder="Product Name">
+			<input class="form-control is-valid" type="text" th:field="*{name}" id="name" placeholder="Product Name" required>
 	    	<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
 	   
 			</div>
@@ -27,32 +29,37 @@
 	    <div class="form-group row">
 	    	 <label for="name" class="col-sm-2 col-form-label">Code</label>
 		     <div class="col-sm-10">
-			     <input class="form-control" type="text" th:field="*{code}" id="code" placeholder="Product Code">
+			     <input class="form-control is-valid" type="text" th:field="*{code}" id="code" placeholder="Product Code" required>
 			     <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></span>
 		     </div>
 	    </div>
 	    <div class="form-group row">
-	    	<label for="name" class="col-sm-2 col-form-label">Product Description</label>
-	    	<div class="col-sm-10">
-	    		 <input class="form-control" type="text" th:field="*{description}" id="description" placeholder="Product Description">
-	    		<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
-	    	</div>
-	    </div>
-	    <div class="form-group row">
 	    	 <label for="name" class="col-sm-2 col-form-label">Product Price</label>
-	    	<div class="col-sm-10">
-		    	<input class="form-control" type="text" th:field="*{price}" id="price" placeholder="Product price">
+	    	<div class="col-sm-10 input-group">
+	    	 <div class="input-group-prepend">
+         	 	<div class="input-group-text">$</div>
+        	 </div>
+		    	<input class="form-control is-valid" type="number" th:field="*{price}" id="price" placeholder="Product price" required>
 		    	<span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
 	    	</div>
 	    </div>
 	    <div class="form-group row">
+	    	<label for="name" class="col-sm-2 col-form-label">Product Description</label>
+	    	<div class="col-sm-10">
+	    		 <textarea class="form-control" rows="3" type="text" th:field="*{description}" id="description"  placeholder="Product Description"/>
+	    		<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+	    	</div>
+	    </div>
+	    
+	    <div class="form-group row">
 	    	<label for="name" class="col-sm-2 col-form-label"></label>
 			<div class="col-sm-10">
-				 <input type="submit" value="Add Product">   
+				 <input class="btn btn-primary mb-2" type="submit" value="Save Product">   
 			</div>
 	    </div>
 		</form>
     </div>
+	</div>
 </div>
 
 <script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
