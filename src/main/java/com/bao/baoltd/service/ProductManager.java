@@ -12,6 +12,8 @@ public interface ProductManager {
     List<Product> getAllProducts();
 
     Optional<Product> getById(Long id);
+    
+    Product create(Product product);
 
     void deleteById(Long id);
 

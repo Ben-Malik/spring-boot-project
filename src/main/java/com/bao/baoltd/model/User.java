@@ -21,18 +21,22 @@ public class User {
     @Column(name = "USER_ID")
     private Long id;
 
-    @Column(name = "USER_NAME", nullable = false, length = 25)
+    @Column(name = "NAME", nullable = false, length = 25)
     private String name;
 
-    @Column(name = "USER_LAST_NAME", nullable = false, length = 25)
-    private String lastName;
+    @Column(name = "SURNAME", nullable = false, length = 25)
+    private String surname;
 
-    @Column(name = "FULL_NAME", nullable = false, length = 50)
+    @Column(name = "USERNAME", nullable = false, length = 50)
     private String fullName;
 
     @Column(name = "EMAIL", nullable = false)
     private String email;
 
+    @Column(name = "PHONE_NUMBER")
     private String phoneNumber;
+
+    @Column(name = "ADDRESS")
+    private String address;
 
 }

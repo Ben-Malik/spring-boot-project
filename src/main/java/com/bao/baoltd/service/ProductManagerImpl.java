@@ -34,4 +34,9 @@ public class ProductManagerImpl implements ProductManager{
     public List<Product> getByType(ProductType type) {
         return null;
     }
+
+	@Override
+	public Product create(Product product) {
+		return repository.save(product);
+	}
 }
