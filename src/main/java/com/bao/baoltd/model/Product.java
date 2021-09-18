@@ -35,6 +35,9 @@ public class Product {
     @Column(name = "DESCRIPTION")
     private String description;
     
+    @Column(name = "COUNT")
+    private int count;
+    
 
 
 }

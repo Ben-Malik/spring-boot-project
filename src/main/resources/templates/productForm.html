@@ -19,10 +19,9 @@
     	<form action="#" th:action="@{/product/add}" th:object="${product}" method="post">
 	    <div class="form-group row">
 	        <label for="name" class="col-sm-2 col-form-label">Name</label>
-
 			<div class="col-sm-10">
-			<input class="form-control is-valid" type="text" th:field="*{name}" id="name" placeholder="Product Name" required>
-	    	<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+				<input class="form-control is-valid" type="text" th:field="*{name}" id="name" placeholder="Product Name" required>
+		    	<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
 	   
 			</div>
 	    </div>
@@ -35,18 +34,25 @@
 	    </div>
 	    <div class="form-group row">
 	    	 <label for="name" class="col-sm-2 col-form-label">Product Price</label>
-	    	<div class="col-sm-10 input-group">
+	    	<div class="col-sm-5 input-group">
 	    	 <div class="input-group-prepend">
          	 	<div class="input-group-text">$</div>
         	 </div>
-		    	<input class="form-control is-valid" type="number" th:field="*{price}" id="price" placeholder="Product price" required>
+		    	<input class="form-control is-valid" type="number"  th:field="*{price}" id="price" placeholder="Product price" required>
 		    	<span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+	    	</div>
+	    	<div class="col-sm-5 input-group">
+	    	 <div class="input-group-prepend">
+         	 	<div class="input-group-text">Adet</div>
+        	 </div>
+		    	<input class="form-control is-valid" type="number"  th:field="*{count}" id="count" placeholder="Product count" required>
+		    	<span th:if="${#fields.hasErrors('count')}" th:errors="*{count}"></span>
 	    	</div>
 	    </div>
 	    <div class="form-group row">
 	    	<label for="name" class="col-sm-2 col-form-label">Product Description</label>
 	    	<div class="col-sm-10">
-	    		 <textarea class="form-control" rows="3" type="text" th:field="*{description}" id="description"  placeholder="Product Description"/>
+	    		 <input class="form-control" type="text" th:field="*{description}" id="description"  placeholder="Product Description">
 	    		<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
 	    	</div>
 	    </div>
