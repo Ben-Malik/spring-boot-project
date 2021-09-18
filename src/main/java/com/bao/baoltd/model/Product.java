@@ -26,7 +26,7 @@ public class Product {
     @Column(name="NAME", nullable = false)
     private String name;
 
-    @Column(name="CODE", nullable = false)
+    @Column(name="CODE", nullable = false, length = 5)
     private String code;
     
     @Column(name = "PRICE", nullable = false)
@@ -37,6 +37,9 @@ public class Product {
     
     @Column(name = "COUNT")
     private int count;
+    
+    @Column(name = "BOX_CODE", length = 10)
+    private String boxCode;
     
 
 

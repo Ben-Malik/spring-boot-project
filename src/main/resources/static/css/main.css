@@ -1,9 +1,28 @@
+
 .centered-element {
 	text-align: center;
 	padding: 10px;
 }
 
 .content-page {
-	
 	margin-top: 5%;
+}
+
+  
+.product {
+	padding: 15px;
+	margin: 10px;
+	border-radius: 8px;
+    color: rgb(0, 0, 89);
+}
+
+.product:hover {
+	text-decoration: none;
+	border-color: black;
+}
+
+.table-header {
+	margin: 10px;
+	padding: 10px;
+	font-weight: 800;
 }

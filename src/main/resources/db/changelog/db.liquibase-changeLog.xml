@@ -55,5 +55,16 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
 		</column>  
 		
 	</addColumn>  
+	
 </changeSet>
+	<changeSet id="add-box-code" author="ben-malik">
+		<addColumn 
+			tableName="PRODUCT" >
+		<column name="BOX_CODE" 
+			type="VARCHAR(10)">
+			<constraints nullable="true"/>
+		</column>  
+		
+	</addColumn> 
+	</changeSet>
 </databaseChangeLog>

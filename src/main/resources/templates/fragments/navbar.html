@@ -8,7 +8,7 @@
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ">
-            <a href="/index" class="active nav-item nav-link ">Home</a>
+            <a href="/index" class=" nav-item nav-link ">Home</a>
             <a href="/products" class="nav-item nav-link">All Products</a>
             <a href="/addProduct" class="nav-item nav-link">New Products</a>
             <a href="#" class="nav-item nav-link ">Orders</a>
@@ -17,19 +17,5 @@
             <a href="#" class="nav-item nav-link">Login</a>
         </div>
     </div>
-    <script>
-    	var header = document.getElementById("navbarCollapse");
-		var btns = header.getElementsByClassName("nav-item");
-		for (var i = 0; i < btns.length; i++) {
-		  btns[i].addEventListener("click", function() {
-		  var current = document.getElementsByClassName("active");
-		  if (current.length > 0) { 
-		    current[0].className = current[0].className.replace("active", "");
-		  }
-		  this.className += " active";
-		  });
-		}
-
-    </script>
     
 </nav>

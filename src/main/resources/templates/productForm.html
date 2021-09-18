@@ -29,9 +29,13 @@
 	    </div>
 	    <div class="form-group row">
 	    	 <label for="name" class="col-sm-2 col-form-label">Code</label>
-		     <div class="col-sm-10">
+		     <div class="col-sm-5 input-group">
 			     <input class="form-control is-valid" type="text" th:field="*{code}" id="code" placeholder="Product Code" required>
 			     <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></span>
+		     </div>
+		     <div class="col-sm-5 input-group">
+			     <input class="form-control is-valid" type="text" th:field="*{boxCode}" id="boxCode" placeholder="Product boxCode">
+			     <span th:if="${#fields.hasErrors('boxCode')}" th:errors="*{boxCode}"></span>
 		     </div>
 	    </div>
 	    <div class="form-group row">
