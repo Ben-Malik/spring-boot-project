@@ -43,3 +43,41 @@
 .main-nav {
 	padding-left: 30px;
 }
+
+.dashboard-item {
+	margin: 10px;
+	border-radius: 8px;
+	padding: 10px;
+	background-color: rgb(0, 0, 89);
+	color: white;
+}
+
+.dashboard-item:hover {
+	margin: 10px;
+	border-radius: 8px;
+	padding: 10px;
+	background-color: white;
+	color: rgb(0, 0, 89);
+}
+
+.dashboard-item-10 {
+	margin: 10px;
+	border-radius: 8px;
+	padding: 10px;
+	padding-right: 0px;
+	background-color: rgb(0, 0, 89);
+	color: white;
+}
+
+.header-message {
+	font-weight: 900;
+	font-size: 25px;
+	
+}
+
+.message-value {
+	font-weight: 800;
+	font-size: 40px;
+	text-align: center;
+	justify-content: center;
+}

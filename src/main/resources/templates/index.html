@@ -10,15 +10,40 @@
 <div th:replace="fragments/navbar"></div>
 
 <body >
-<div class="container">
+<div class="container  main-page ">
     <div >
-       <h1> Admin Panael</h1>
+       <h1> Hoş Geldiniz</h1>
+    </div>
+    <div class="row ">
+    	<div class="col-sm-5 dashboard-item border border-light">
+    	 <div class="header-message"><strong>Stogu Bitmiş Ürün Sayisi:</strong></div>	
+    	 <div class="message-value" th:text="${zeroStockProducts}"></div> 
+    	 </div>
+    	<div class="col-sm-5 dashboard-item border border-light"> 
+    	    <div class="header-message"><strong>Stogu Bitmemiş Ürün Sayisi:</strong></div>	
+    		<div class="message-value" th:text="${productsCount}"></div> 
+    	</div>
+    </div>
+    <div>
+    	<p> Bugun Doviz ne Kadar?</p>
+    	<div class=" row">
+	    	 <div class=" dashboard-item col-sm-3 border border-light">
+	    	 	1 Dolar = 10TL
+	    	 </div>
+	    	 
+	    	 <div class=" dashboard-item col-sm-3 border border-light">
+	    	  1 Euro = 10TL
+	    	 </div>
+	    	 <div class=" dashboard-item col-sm-4 border border-light">
+	    	  1 Sterlin = 10TL
+	    	 </div>
+    	 </div>
+    	
     </div>
 </div>
 
 <script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 </body>
 </html>

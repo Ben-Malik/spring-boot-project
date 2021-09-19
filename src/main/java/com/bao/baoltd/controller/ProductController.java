@@ -30,9 +30,10 @@ public class ProductController {
         return "product";
     }
     
-    @GetMapping("/index")
+    @GetMapping("/")
     public String showUserList(Model model) {
-        model.addAttribute("products", productManager.getAllProducts());
+        model.addAttribute("productsCount", productManager.getAllProducts().size());
+        model.addAttribute("zeroStockProducts", productManager.getAllProducts().size());
         return "index";
     }
     
@@ -62,7 +63,7 @@ public class ProductController {
     	if(product == null) {
     		return "notFound";
     	}
-    	model.addAttribute("product", product);
+    	model.addAttribute("product", product.get());
     	return "productDetail";
     }
     
