@@ -4,7 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.validation.constraints.Email;
+
 import javax.persistence.Column;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -30,13 +33,9 @@ public class User {
     @Column(name = "USERNAME", nullable = false, length = 50)
     private String fullName;
 
+    @Email
     @Column(name = "EMAIL", nullable = false)
     private String email;
-
-    @Column(name = "PHONE_NUMBER")
-    private String phoneNumber;
-
-    @Column(name = "ADDRESS")
-    private String address;
+   
 
 }
