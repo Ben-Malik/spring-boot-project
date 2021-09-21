@@ -40,6 +40,14 @@ public class AccountController {
 		return "myAccount";
 	}
 	
+	@RequestMapping("/myProfile")
+	public String myProfile(Model model, Authentication authentication) {				
+		User user = (User) authentication.getPrincipal();
+		model.addAttribute("user", user);
+		return "myProfile";
+	}
+	
+	
 	@RequestMapping(value="/newUser", method=RequestMethod.POST)
 	public String newUserPost(@Valid @ModelAttribute("user") User user, BindingResult bindingResults,
 							  @ModelAttribute("new-password") String password, 

@@ -6,5 +6,18 @@
 <body class="d-flex flex-column" >
   <div th:replace="fragments/header :: navbar"> </div>
 
+ <div class="jumbotron jumbotron-fluid mt-0" th:style="'background-image: url(/images/background/adidas-background.jpg);'">
+  	<div class="container">
+      <div class="row text-left py-5">   
+         <div class="col-sm-12 col-md-10 offset-md-1 col-lg-8 offset-lg-3 col-xl-6 offset-xl-6 my-auto">  
+            <h2 class="bg-warning text-dark d-inline-block p-1">Brand New</h2>
+            <h1 class="font-weight-bold">High Quality Shoes</h1>
+            <a th:href="@{/store}" class="btn btn-primary rounded-pill" data-addclass-on-xs="btn-sm">SHOP NOW</a>       
+          </div> 
+      </div>
+  	</div>
+  </div>  
+<div th:replace="fragments/header :: footer"> </div>
+  <div th:replace="fragments/header :: body-scripts"> </div>
 </body>
 </html>
