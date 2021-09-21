@@ -17,7 +17,7 @@ public class ProductManagerImpl implements ProductManager{
 
     @Override
     public List<Product> getAllProducts() {
-        return repository.findAll();
+        return (List<Product>) repository.findAll();
     }
 
     @Override

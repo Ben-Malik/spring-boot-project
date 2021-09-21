@@ -2,9 +2,12 @@ package com.bao.baoltd.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -19,6 +22,7 @@ import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -38,36 +42,34 @@ import javax.persistence.Table;
 			@NamedSubgraph(name = "role-subgraph", attributeNodes = {  @NamedAttributeNode("role") }
 		)}
 	)
-@Table(name = "APP_USER")
+@Table(name = "user", schema = "public")
 @Data
+@Entity
 @AllArgsConstructor
 @NoArgsConstructor
+@SuppressWarnings("serial")
 public class User implements UserDetails{
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "USER_ID")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id", nullable=false, updatable=false)
     private Long id;
 
-    @Column(name = "NAME", nullable = false, length = 25)
-    private String name;
+    @Column(name = "firstname")
+    private String firstname;
 
-    @Column(name = "SURNAME", nullable = false, length = 25)
+    @Column(name = "surname")
     private String surname;
 
-    @Column(name = "USERNAME", nullable = false, length = 50)
+    @Column(name = "username", nullable = false, length = 50)
     private String username;
     
-    @Column(name = "PASSWORD", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
+    @NotNull
     @Email
-    @Column(name = "EMAIL", nullable = false)
+    @Column(name = "email", nullable = false)
     private String email;
     
     @OneToOne(cascade= CascadeType.ALL, orphanRemoval = true)
@@ -76,6 +78,7 @@ public class User implements UserDetails{
     
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonIgnore
+	@EqualsAndHashCode.Exclude
 	private Set<UserRole> userRoles = new HashSet<>();
 
 
@@ -114,6 +117,29 @@ public class User implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		return true;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public void setPassword(String encode) {
+		this.password = encode;
+		
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+		
+	}
+
+	public void setUserRoles(Set<UserRole> userRoles) {
+		this.userRoles = userRoles;
+		
+	}
+
+	public String getEmail() {
+		return email;
 	}
    
 

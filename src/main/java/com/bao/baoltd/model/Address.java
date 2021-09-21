@@ -10,6 +10,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@SuppressWarnings("unused")
 @Entity
 @Data
 @NoArgsConstructor
@@ -19,14 +20,9 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name = "STREET_ADDRESS")
 	private String streetAddress;
-	@Column(name = "CITY")
 	private String city;
-	@Column(name = "COUNTRY")
 	private String country;
-	@Column(name = "ZIP_CODE")
 	private String zipCode;
-	
 
 }

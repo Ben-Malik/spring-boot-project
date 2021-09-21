@@ -12,14 +12,15 @@ import javax.persistence.Table;
 import com.bao.baoltd.model.User;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Table(name="user_role")
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 public class UserRole {
 
 	@Id
@@ -33,6 +34,11 @@ public class UserRole {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name="role_id")
 	private Role role;
+	
+	public UserRole(User user, Role role) {
+		this.user = user;
+		this.role = role;
+	}
 
 	public Role getRole() {
 		return role;

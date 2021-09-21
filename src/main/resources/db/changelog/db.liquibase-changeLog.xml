@@ -7,27 +7,63 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
 http://www.liquibase.org/xml/ns/pro 
 http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
-	<changeSet author="ben-malik (generated)" id="1439225004329-1">
-        <createTable tableName="APP_USER">
+	<changeSet  author="ben-malik (generated)" id="1439225004329-malik-MI-1343e">
+        <!-- createTable tableName="user">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="PASSWORD" type="varchar(255)"/>
-            <column name="USERNAME" type="varchar(255)">
+            <column name="password" type="varchar(255)"/>
+            <column name="username" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="NAME" type="varchar(255)">
+            <column name="name" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="SURNAME" type="varchar(255)">
+            <column name="surname" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="EMAIL" type="varchar(255)">
+            <column name="email" type="varchar(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="PHONE_NUMBER" type="varchar(11)"/>
-            <column name="ADDRESS" type="VARCHAR(255)"/>
+             <column name="address_id" type="BIGINT">
+            <constraints nullable="false" foreignKeyName="fk_user_address" references="address(id)"/>
+          </column>
         </createTable>
+        <createTable tableName="address">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="street_address" type="varchar(255)"/>
+            <column name="city" type="varchar(255)">
+            </column>
+            <column name="country" type="varchar(255)">
+            </column>
+            <column name="zip_code" type="varchar(255)">
+            </column>
+        </createTable>
+         <createTable tableName="user_role">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>   
+           <column name="role_id" type="BIGINT">
+            <constraints nullable="false" foreignKeyName="fk_role_user_role" references="role(id)"/>
+          </column>
+           <column name="user_id" type="BIGINT">
+            <constraints nullable="false" foreignKeyName="fk_user_user_role" references="app_user(id)"/>
+          </column>
+        </createTable>
+         <createTable tableName="role">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)"/>
+   
+           <column name="user_role_id" type="BIGINT">
+            <constraints nullable="false" foreignKeyName="fk_role_user_role" references="user_role(id)"/>
+          </column>
+        </createTable>
+        
+        
          
          <createTable tableName="PRODUCT">
             <column autoIncrement="true" name="id" type="BIGINT">
@@ -56,7 +92,7 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
 		
 	</addColumn>  
 	
-</changeSet>
+	</changeSet>
 	<changeSet id="add-box-code" author="ben-malik">
 		<addColumn 
 			tableName="PRODUCT" >
@@ -66,5 +102,32 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
 		</column>  
 		
 	</addColumn> 
+	<addColumn tableName="user">
+		 <column name="address_id" type="BIGINT">
+            <constraints nullable="false" foreignKeyName="fk_user_address" references="address(id)"/>
+          </column>
+	</addColumn>
+	<renameColumn  
+            columnDataType="varchar(255)"  
+            newColumnName="firstname"  
+            oldColumnName="name"  
+            remarks="A String"  
+            schemaName="public"  
+            tableName="user"/> 
+	 -->
+	  <createTable tableName="user_role">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>   
+           <column name="role_id" type="BIGINT">
+            <constraints nullable="false" foreignKeyName="fk_role_user_role" references="role(role_id)"/>
+          </column>
+           <column name="user_id" type="BIGINT">
+            <constraints nullable="false" foreignKeyName="fk_user_user_role" references="user(id)"/>
+          </column>
+        </createTable>
+         
+        
+	
 	</changeSet>
 </databaseChangeLog>

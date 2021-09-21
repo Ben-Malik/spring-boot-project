@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -23,17 +24,23 @@ import lombok.NoArgsConstructor;
 public class Role {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name = "role_id")
 	private Long roleId;
 	
-	@Column(unique = true)
+	@Column(name = "name", unique = true)
 	private String name;
 	
+	@EqualsAndHashCode.Exclude
 	@OneToMany(mappedBy = "role", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
 	private Set<UserRole> userRoles = new HashSet<>();
 
 	public String getName() {
 		return name;
+	}
+
+	public void setName(String rolename) {
+		this.name = rolename;		
 	}
 	
 }
