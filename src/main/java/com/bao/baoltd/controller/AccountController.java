@@ -47,7 +47,6 @@ public class AccountController {
 		return "myProfile";
 	}
 	
-	
 	@RequestMapping(value="/newUser", method=RequestMethod.POST)
 	public String newUserPost(@Valid @ModelAttribute("user") User user, BindingResult bindingResults,
 							  @ModelAttribute("new-password") String password, 

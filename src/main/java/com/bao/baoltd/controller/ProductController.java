@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
+@RequestMapping("/product")
 public class ProductController {
 
 
@@ -30,12 +32,14 @@ public class ProductController {
         return "product";
     }
     
-    @GetMapping("/")
-    public String showUserList(Model model) {
-        model.addAttribute("productsCount", productManager.getAllProducts().size());
-        model.addAttribute("zeroStockProducts", productManager.getAllProducts().size());
-        return "index";
-    }
+    @RequestMapping("/productList")
+	public String articleList(Model model) {
+		List<Product> products = productManager.getAllProducts();
+		model.addAttribute("products", products);
+		return "productList";
+	}
+	
+    
     
     
     @RequestMapping(value = "/addProduct", method = { RequestMethod.GET})
@@ -46,26 +50,29 @@ public class ProductController {
     }
     
     
-    @RequestMapping(value = "/product/add", method = { RequestMethod.POST })
-    public String addProduct(@Validated Product product, BindingResult result, Model model) {
-        if (result.hasErrors()) {
-            return "productForm";
-        }
-        
-        productManager.create(product);
-        return "redirect:/products";
-    }
-    
-    @RequestMapping(value = "/product/edit/{id}", method = RequestMethod.GET)
-    public String displayProduct(@PathVariable("id") Long id, Model model) {
-    	
-    	Optional<Product> product = productManager.getById(id);
-    	if(product == null) {
-    		return "notFound";
-    	}
-    	model.addAttribute("product", product.get());
-    	return "productDetail";
-    }
+    @RequestMapping("/add")
+	public String addArticle(Model model) {
+		Product product = new Product();
+		model.addAttribute("product", product);
+		model.addAttribute("allBrands", productManager.getAllBrands());
+		model.addAttribute("allCategories", productManager.getAllCategories());
+		return "addProduct";
+	}
+	
+	@RequestMapping(value="/add", method=RequestMethod.POST)
+	public String addArticlePost(@ModelAttribute("product") Product product, HttpServletRequest request) {
+		Product newProduct = new ArticleBuilder()
+				.withTitle(product.getName())
+				.stockAvailable(product.getCount())
+				.withPrice(product.getPrice())
+				.imageLink(product.getPicture())
+				.sizesAvailable(Arrays.asList(request.getParameter("size").split("\\s*,\\s*")))
+				.ofCategories(Arrays.asList(request.getParameter("category").split("\\s*,\\s*")))
+				.ofBrand(Arrays.asList(request.getParameter("brand").split("\\s*,\\s*")))
+				.build();		
+		productManager.create(newProduct);	
+		return "redirect:article-list";
+	}
     
     
 }

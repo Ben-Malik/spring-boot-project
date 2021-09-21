@@ -35,7 +35,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 			"/newUser",
 			"/login",
 			"/store",
-			"/article-detail"				
+			"/product-detail"				
 	};
 	
 	@Override
@@ -43,7 +43,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 		http
 			.authorizeRequests()
 			.antMatchers(PUBLIC_MATCHERS).permitAll()
-			.antMatchers("/article/**").hasRole("ADMIN")
+			.antMatchers("/product/**").hasRole("ADMIN")
 			.anyRequest().authenticated();
 		
 		http
