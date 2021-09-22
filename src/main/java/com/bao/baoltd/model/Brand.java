@@ -18,6 +18,11 @@ import lombok.NoArgsConstructor;
 @Data
 public class Brand {
 	
+	public Brand(String val, Product product2) {
+		this.name = val;
+		this.product = product2;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -27,5 +32,13 @@ public class Brand {
 	private Product product;
 	
 	private String name;
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 
 }

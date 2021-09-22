@@ -1,44 +1,73 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8"/>
-    <title>BAO Teknoloji</title>
-    <link th:rel="stylesheet" href="/css/main.css "/>
+<html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
+<head th:replace="fragments/header :: common-header" />
+<body>
 
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
-</head>
-<div th:replace="fragments/navbar"></div>
+  <div th:replace="adminHome :: navbarAdmin"> </div>
 
-<body >
+  <div class="container page-content">
+    <form action="#" th:action="@{/product/add}" th:object="${product}" method="post">
+     	<legend class="center-block">
+          	New Product Information
+        </legend>
+	    <div class="form-group row">
+	        <label for="name" class="col-sm-2 col-form-label">Name</label>
+			<div class="col-sm-10">
+				<input class="form-control" type="text" th:field="*{name}" id="name" placeholder="Product Name" required>
+		    	<span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+	   
+			</div>
+	    </div>
+	    <div class="form-group row">
+	    	 <label for="name" class="col-sm-2 col-form-label">Code</label>
+		     <div class="col-sm-5 input-group">
+			     <input class="form-control" type="text" th:field="*{code}" id="code" placeholder="Product Code" maxLength=5 required>
+			     <span th:if="${#fields.hasErrors('code')}" th:errors="*{code}"></span>
+		     </div>
+		     <div class="col-sm-5 input-group">
+			     <input class="form-control" type="text" th:field="*{boxCode}" id="boxCode" placeholder="Product boxCode">
+			     <span th:if="${#fields.hasErrors('boxCode')}" th:errors="*{boxCode}"></span>
+		     </div>
+	    </div>
+	    <div class="form-group row">
+	    	 <label for="name" class="col-sm-2 col-form-label">Product Price</label>
+	    	<div class="col-sm-5 input-group">
+	    	 <div class="input-group-prepend">
+         	 	<div class="input-group-text">$</div>
+        	 </div>
+		    	<input class="form-control " type="number" step="any"  th:field="*{price}" id="price" placeholder="Product price" required>
+		    	<span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
+	    	</div>
+	    	<div class="col-sm-5 input-group">
+	    	 <div class="input-group-prepend">
+         	 	<div class="input-group-text">Sock</div>
+        	 </div>
+		    	<input class="form-control " type="number"  th:field="*{count}" id="count" placeholder="Product count" required>
+		    	<span th:if="${#fields.hasErrors('count')}" th:errors="*{count}"></span>
+	    	</div>
+	    </div>
+	    <div class="form-group row">
+	    	<label for="name" class="col-sm-2 col-form-label">Product Description</label>
+	    	<div class="col-sm-10">
+	    		 <textarea class="form-control" rows="4" type="text" th:field="*{description}" id="description"  placeholder="Product Description"/>
+	    		<span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+	    	</div>
+	    </div>
+	    
+	    <div class="form-group row">
+	    	<label for="name" class="col-sm-2 col-form-label"></label>
+			<div class="col-sm-10">
+				 <input class="btn btn-primary mb-2" type="submit" value="Save Product">   
+			</div>
+	    </div>
+		</form>
+  </div>
 
-<div class="container  main-page ">
-   
-       <h1 class="center-element">All Products</h1>
-     <div th:if="${not #lists.isEmpty(products)}" class="row table-header">
-     	<span class="col-sm-2"> Code </span>
-     	 <span class="col-sm-4"> Name </span>
-     	<span class="col-sm-2"> Price  </span>
-     	<span class="col-sm-2"> Stock </span>
-     	<span class+"col-sm-2">Box</span>
-
-     </div>  
-     <div>
-     <a th:each="product: ${products}" th:href="@{/product/edit/{id}(id=${product.id})}" class="border border-light row product">
-    	    <span class="col-sm-2" th:text="${product.code}"></span>
-    		<span class="col-sm-4" th:text="${product.name}"> </span>
-    		 <span class="col-sm-2" th:text="${ '$ ' + product.price}"> </span>
-    		 <span class="col-sm-2" th:text="${product.count}"> </span>
-    		 <span class="col-sm-2" th:text="${product.boxCode}"></span>
-    </a>
-     </div>
 
 
-</div>
-<script th:src="@{/webjars/jquery/3.0.0/jquery.min.js}"></script>
-<script th:src="@{/webjars/popper.js/1.12.9-1/umd/popper.min.js}"></script>
-<script th:src="@{/webjars/bootstrap/4.0.0-2/js/bootstrap.min.js}"></script>
+  <div th:replace="fragments/header :: body-scripts"> </div>
+  <script src="/js/tagsinput-custom.js"></script>
+  
+
 </body>
 </html>
-<script>
-
-</script>

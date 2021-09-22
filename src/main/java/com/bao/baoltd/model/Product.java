@@ -59,12 +59,12 @@ public class Product {
     @Column(name = "picture")
 	private String picture;
 
-	@OneToMany(mappedBy="product", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="product", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
     @JsonIgnore
 	@EqualsAndHashCode.Exclude
 	private Set<Brand> brands  = new HashSet<>();;
 	
-	@OneToMany(mappedBy="product", cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(mappedBy="product", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	@JsonIgnore
 	@EqualsAndHashCode.Exclude
 	private Set<Category> categories  = new HashSet<>();
@@ -78,14 +78,62 @@ public class Product {
 	}
 
 	public Double getPrice() {
-		// TODO Auto-generated method stub
 		return price;
 	}
+	
+	public String getCode() {
+		return code;
+	}
+	
+	public void setCode(String code) {
+		this.code = code;
+	}
 
+	public String getBoxCode() {
+		return boxCode;
+	}
+	
+	public void setBoxCode(String boxCode) {
+		this.boxCode = boxCode;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
 	public String getPicture() {
-		// TODO Auto-generated method stub
 		return picture;
-	};    
+	}
 
+	public void setName(String name) {
+		this.name = name;
+		
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+		
+	}
+	
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public void setCategories(Set<Category> catElements) {
+		this.categories = catElements;
+		
+	}
+
+	public void setBrands(Set<Brand> brandlements) {
+		this.brands = brandlements;
+	}
 
 }

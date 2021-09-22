@@ -18,17 +18,17 @@
       </tr>
     </thead>
     <tbody>
-      <tr data-th-each="product : ${products}">
-        <td th:text="${product.title}"></td>
+      <tr th:each="product : ${products}">
+        <td th:text="${product.name}"></td>
         <td><div style="display:flex;"><span th:each="item : ${product.categories}" 
             th:text="${item.getName()}" class="badge badge-secondary mt-1 mr-1" ></span></div></td>
         <td><div style="display:flex;"><span th:each="item : ${product.brands}" 
             th:text="${item.getName()}" class="badge badge-secondary mt-1 mr-1" ></span></div></td>
  
         <td th:text="${product.price}"></td>
-        <td th:text="${product.stock}"></td>
-        <td><a th:href="@{/product/edit?id=}+${article.id}" class="badge badge-primary">EDIT</a>  
-            <a th:href="@{/product/delete?id=}+${article.id}" class="badge badge-danger">DELETE </a> </td>
+        <td th:text="${product.count}"></td>
+        <td><a th:href="@{/product/edit?id=}+${product.id}" class="badge badge-primary">EDIT</a>  
+            <a th:href="@{/product/delete?id=}+${product.id}" class="badge badge-danger">DELETE </a> </td>
       </tr>
     </tbody>
   </table>

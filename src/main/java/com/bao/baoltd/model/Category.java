@@ -20,6 +20,11 @@ import lombok.NoArgsConstructor;
 @Table(name = "category")
 public class Category {
 
+	public Category(String val, Product product) {
+		this.name = val;
+		this.product = product;
+	}
+
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -30,4 +35,12 @@ public class Category {
 	
 	@Column(name = "name")
 	private String name;
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getName() {
+		return name;
+	}
 }

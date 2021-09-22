@@ -7,9 +7,12 @@ import java.util.Set;
 public class ProductBuilder {
 	
 	private String name;
-	private int stock;	
+	private int count;	
 	private double price;
 	private String picture;
+	private String code;
+	private String boxCode;
+	private String description;
 	private List<String> categories;
 	private List<String> brands;
 
@@ -22,7 +25,7 @@ public class ProductBuilder {
 	}
 	
 	public ProductBuilder stockAvailable(int stock) {
-		this.stock = stock;
+		this.count = stock;
 		return this;
 	}
 	
@@ -36,11 +39,6 @@ public class ProductBuilder {
 		return this;
 	}
 	
-	public ProductBuilder sizesAvailable(List<String> sizes) {
-		this.sizes = sizes;
-		return this;
-	}
-	
 	public ProductBuilder ofCategories(List<String> categories) {
 		this.categories = categories;
 		return this;
@@ -51,11 +49,27 @@ public class ProductBuilder {
 		return this;
 	}
 	
+	
+	public ProductBuilder withCode(String code) {
+		this.code = code;
+		return this;
+	}
+	
+	public ProductBuilder withBoxCode(String boxCode) {
+		this.boxCode = boxCode;
+		return this;
+	}
+	
+	
+	public ProductBuilder withDescription(String description) {
+		this.description = description;
+		return this;
+	}
 	public Product build() {
 		Product product = new Product();
-		product.setTitle(this.name);
+		product.setName(this.name);
 		product.setPrice(this.price);
-		product.setStock(this.stock);
+		product.setCount(this.count);
 		product.setPicture(this.picture);		
 	
 		
@@ -77,5 +91,7 @@ public class ProductBuilder {
 		
 		return product;
 	}
+
+	
 	
 }

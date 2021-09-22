@@ -47,6 +47,7 @@ public class ProductManagerImpl implements ProductManager{
     }
 
 	@Override
+	@Transactional
 	public Product create(Product product) {
 		return repository.save(product);
 	}

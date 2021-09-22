@@ -1,6 +1,7 @@
 package com.bao.baoltd.controller;
 
 import com.bao.baoltd.model.Product;
+import com.bao.baoltd.model.ProductBuilder;
 import com.bao.baoltd.service.ProductManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 @RequestMapping("/product")
@@ -56,22 +59,24 @@ public class ProductController {
 		model.addAttribute("product", product);
 		model.addAttribute("allBrands", productManager.getAllBrands());
 		model.addAttribute("allCategories", productManager.getAllCategories());
-		return "addProduct";
+		return "product";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public String addArticlePost(@ModelAttribute("product") Product product, HttpServletRequest request) {
-		Product newProduct = new ArticleBuilder()
+		Product newProduct = new ProductBuilder()
 				.withTitle(product.getName())
 				.stockAvailable(product.getCount())
 				.withPrice(product.getPrice())
-				.imageLink(product.getPicture())
-				.sizesAvailable(Arrays.asList(request.getParameter("size").split("\\s*,\\s*")))
-				.ofCategories(Arrays.asList(request.getParameter("category").split("\\s*,\\s*")))
-				.ofBrand(Arrays.asList(request.getParameter("brand").split("\\s*,\\s*")))
+				.withCode(product.getCode())
+				.withBoxCode(product.getBoxCode())
+				.withDescription(product.getDescription())
+				.imageLink("")
+				.ofCategories(null)
+				.ofBrand(null)
 				.build();		
-		productManager.create(newProduct);	
-		return "redirect:article-list";
+		productManager.create(product);	
+		return "redirect:productList";
 	}
     
     
