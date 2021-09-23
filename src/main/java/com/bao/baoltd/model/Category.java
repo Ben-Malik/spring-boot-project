@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,7 +21,8 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Table(name = "category")
+@Table(name = "category", uniqueConstraints = { @UniqueConstraint(columnNames = { "name"}) })
+
 public class Category {
 
 	public Category(String val, Product product) {

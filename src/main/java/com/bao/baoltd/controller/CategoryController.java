@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bao.baoltd.model.Category;
-import com.bao.baoltd.model.Product;
 import com.bao.baoltd.service.CategoryManager;
+
 
 @Controller
 @RequestMapping("/category")
