@@ -45,7 +45,7 @@ public class ProductController {
     }
     
     @RequestMapping("/productList")
-	public String articleList(Model model) {
+	public String productList(Model model) {
 		List<Product> products = productManager.getAllProducts();
 		model.addAttribute("products", products);
 		return "productList";
