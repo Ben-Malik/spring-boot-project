@@ -7,7 +7,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -17,11 +19,15 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -63,18 +69,20 @@ public class Product {
     @Column(name = "picture")
 	private String picture;
     
-    public Product() {}
+//    public Product() {}
     
 
-	@OneToMany(mappedBy="product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    @JsonIgnore
+    @LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany
+	@JoinColumn(name = "product_id")
 	@EqualsAndHashCode.Exclude
-	private Set<Brand> brands  = new HashSet<>();;
+	private List<Brand> brands  = new ArrayList<>();;
 	
-	@OneToMany(mappedBy="product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JsonIgnore
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@OneToMany
 	@EqualsAndHashCode.Exclude
-	private Set<Category> categories  = new HashSet<>();
+	@JoinColumn(name = "product_id")
+	private List<Category> categories  = new ArrayList<>();
 
 	public String getName() {
 		return name;
@@ -138,20 +146,20 @@ public class Product {
 		this.count = count;
 	}
 
-	public void setCategories(Set<Category> catElements) {
+	public void setCategories(List<Category> catElements) {
 		this.categories = catElements;
 		
 	}
 
-	public void setBrands(Set<Brand> brandlements) {
+	public void setBrands(List<Brand> brandlements) {
 		this.brands = brandlements;
 	}
 
-	public Set<Brand> getBrands() {
+	public List<Brand> getBrands() {
 		return brands;
 	}
 	
-	public Set<Category> getCategories() {
+	public List<Category> getCategories() {
 		return categories;
 	}
 }

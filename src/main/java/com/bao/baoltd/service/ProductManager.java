@@ -1,7 +1,5 @@
 package com.bao.baoltd.service;
 
-import com.bao.baoltd.enums.ProductType;
-import com.bao.baoltd.model.Category;
 import com.bao.baoltd.model.Product;
 
 import java.util.List;
@@ -20,8 +18,6 @@ public interface ProductManager {
     Product create(Product product);
 
     void deleteById(Long id);
-
-    List<Product> getByType(ProductType type);
 
 	List<String> getAllBrands();
 	

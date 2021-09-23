@@ -41,11 +41,6 @@ public class ProductManagerImpl implements ProductManager{
          repository.deleteById(id);
     }
 
-    @Override
-    public List<Product> getByType(ProductType type) {
-        return null;
-    }
-
 	@Override
 	@Transactional
 	public Product create(Product product) {

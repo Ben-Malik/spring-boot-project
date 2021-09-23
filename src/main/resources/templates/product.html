@@ -50,29 +50,33 @@
 	    	 <label for="name" class="col-sm-2 col-form-label">Branding</label>
 	    	<div class="col-sm-3">
 	    	
-				<select
-				class="selectpicker " data-live-search=true 
-        	 	data-actions-box="true" 
-        	 	data-selected-text-format="count" multiple 
-        	 	title="Select Categories"
-        	 	data-header="Select categories">
-   				<option th:each="category, categoryStat : ${allCategories}"
-	                    th:text="${category.name}"
-	                    	                    >
+				<select th:field="*{categories}" 
+					class="selectpicker " data-live-search=true 
+	        	 	data-actions-box="true" 
+	        	 	data-selected-text-format="count" multiple 
+	        	 	title="Select Categories"
+	        	 	data-header="Select categories">
+	        	 	
+	        	 	<th:block th:each="cat : ${allCategories}">
+	        	 		<option th:text="${cat.name}" th:value="${cat.id}"  />
+	        	 	</th:block>
+   				
 			</select>
 		    	<span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
 	    	</div>
 	    	<div class="">
 	    	
-        	 <select 
-        	    class="selectpicker " data-live-search=true 
-        	 	data-actions-box="true" 
-        	 	data-selected-text-format="count" multiple 
-        	 	title="Choose brands"
-        	 	data-header="Select brands for this product">
-   				<option th:each="brand, brandStat : ${allBrands}"
-	                    th:text="${brand.name}"
-	                     >
+        	 <select th:field="*{brands}" 
+					class="selectpicker " data-live-search=true 
+	        	 	data-actions-box="true" 
+	        	 	data-selected-text-format="count" multiple 
+	        	 	title="Select Brands"
+	        	 	data-header="Select brands">
+	        	 	
+	        	 	<th:block th:each="brd : ${allBrands}">
+	        	 		<option th:text="${brd.name}" th:value="${brd.id}"  />
+	        	 	</th:block>
+   				
 			</select>
 
 					    	

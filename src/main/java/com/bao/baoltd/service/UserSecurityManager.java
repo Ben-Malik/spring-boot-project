@@ -33,4 +33,5 @@ public class UserSecurityManager implements UserDetailsService{
 				userDetails.getAuthorities());		
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 	}
+	
 }

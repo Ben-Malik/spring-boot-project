@@ -17,7 +17,6 @@ import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
-@NoArgsConstructor
 @Setter
 @Getter
 @Table(name = "brand")
@@ -27,7 +26,7 @@ public class Brand {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(name="product_id")
 	private Product product;
 	
@@ -56,7 +55,7 @@ public class Brand {
 		this.product = brand.getProduct();
 	}
 
-	private Long getId() {
+	public Long getId() {
 		return id;
 	}
 	

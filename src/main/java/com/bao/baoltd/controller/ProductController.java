@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -65,16 +66,16 @@ public class ProductController {
 		model.addAttribute("allBrands", brandManager.getAllBrands());
 
 		Product product = new Product();
-		product.setBrands(new HashSet<>());
-		product.setCategories(new HashSet<>());
+		product.setBrands(new ArrayList<>());
+		product.setCategories(new ArrayList<>());
 		model.addAttribute("product", product);
-		System.out.println(brandManager.getAllBrands());
+		model.addAttribute("allBrands", brandManager.getAllBrands());
 		model.addAttribute("allCategories", categoryManager.getAllCategories());
 		return "product";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public String addArticlePost(@ModelAttribute("product") Product product, HttpServletRequest request) {
+	public String addArticlePost(@Validated @ModelAttribute("product") Product product, HttpServletRequest request) {
 		Product newProduct = new ProductBuilder()
 				.withTitle(product.getName())
 				.stockAvailable(product.getCount())
