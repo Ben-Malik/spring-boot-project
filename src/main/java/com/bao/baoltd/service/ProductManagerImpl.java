@@ -1,6 +1,7 @@
 package com.bao.baoltd.service;
 
 import com.bao.baoltd.enums.ProductType;
+import com.bao.baoltd.model.Brand;
 import com.bao.baoltd.model.Category;
 import com.bao.baoltd.model.Product;
 import com.bao.baoltd.repository.ProductRepository;
@@ -61,6 +62,8 @@ public class ProductManagerImpl implements ProductManager{
 	public List<String> getAllCategories() {
 		return repository.findAllCategories();
 	}
+	
+	
 
 	@Override
 	public Page<Product> findArticlesByCriteria(Pageable pageable, Integer priceLow, Integer priceHigh,
@@ -68,4 +71,5 @@ public class ProductManagerImpl implements ProductManager{
 		Page<Product> page = repository.findAll(ProductSpecification.filterBy(priceLow, priceHigh, sizes, categories, brands, search), pageable);
         return page;
 	}
+
 }

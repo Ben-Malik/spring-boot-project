@@ -29,4 +29,5 @@ public interface ProductManager {
 
 	Page<Product> findArticlesByCriteria(Pageable pageable, Integer priceLow, Integer priceHigh, List<String> sizes,
 			List<String> categories, List<String> brands, String search);
+
 }
