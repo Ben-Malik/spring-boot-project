@@ -15,7 +15,7 @@ public class ProductBuilder {
 	private String boxCode;
 	private String description;
 	private List<String> categories;
-	private List<String> brands;
+	private String brand;
 
 	public ProductBuilder() {
 	}
@@ -45,8 +45,8 @@ public class ProductBuilder {
 		return this;
 	}
 	
-	public ProductBuilder ofBrand(List<String> brands) {
-		this.brands = brands;
+	public ProductBuilder ofBrand(String brand) {
+		this.brand = brand;
 		return this;
 	}
 	
@@ -81,12 +81,9 @@ public class ProductBuilder {
 			}
 			product.setCategories(catElements);
 		}		
-		if (this.brands != null && !this.brands.isEmpty() ) {
-			List<Brand> brandlements = new ArrayList<>();
-			for (String val : this.brands) {
-				brandlements.add(new Brand(val,product));
-			}
-			product.setBrands(brandlements);
+		if (this.brand != null) {
+			
+			product.setBrand(new Brand(brand));
 		}		
 		
 		

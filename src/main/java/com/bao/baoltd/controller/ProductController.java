@@ -1,5 +1,6 @@
 package com.bao.baoltd.controller;
 
+import com.bao.baoltd.model.Brand;
 import com.bao.baoltd.model.Product;
 import com.bao.baoltd.model.ProductBuilder;
 import com.bao.baoltd.service.BrandManager;
@@ -66,7 +67,7 @@ public class ProductController {
 		model.addAttribute("allBrands", brandManager.getAllBrands());
 
 		Product product = new Product();
-		product.setBrands(new ArrayList<>());
+		product.setBrand(new Brand());
 		product.setCategories(new ArrayList<>());
 		model.addAttribute("product", product);
 		model.addAttribute("allBrands", brandManager.getAllBrands());

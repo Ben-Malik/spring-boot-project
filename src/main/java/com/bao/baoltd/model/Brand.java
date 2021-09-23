@@ -26,21 +26,12 @@ public class Brand {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
-	@JoinColumn(name="product_id")
-	private Product product;
 	
 	private String name;
 	
 	public String getName() {
 		return name;
 	}
-	
-	public Brand(String val, Product product2) {
-		this.name = val;
-		this.product = product2;
-	}
-	
 
 	public Brand(String name) {
 		this.name = name;
@@ -52,7 +43,6 @@ public class Brand {
 	public Brand(Brand brand) {
 		this.id = brand.getId();
 		this.name = brand.getName();
-		this.product = brand.getProduct();
 	}
 
 	public Long getId() {
@@ -62,15 +52,6 @@ public class Brand {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	
-	public Product getProduct() {
-		return product;
-	}
-	
-	public void setProduct(Product product) {
-		this.product = product;
-	}
-	
 	
 	public void setName(String name) {
 		this.name = name;

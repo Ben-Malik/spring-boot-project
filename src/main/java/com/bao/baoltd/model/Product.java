@@ -23,6 +23,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
@@ -33,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @NamedEntityGraph(
 		name= "ProductComplete",
-		attributeNodes= { @NamedAttributeNode(value="brands"), @NamedAttributeNode(value="categories") }
+		attributeNodes= { @NamedAttributeNode(value="brand"), @NamedAttributeNode(value="categories") }
 	)
 @Table(name = "product",  schema = "public")
 @Setter
@@ -72,11 +73,9 @@ public class Product {
 //    public Product() {}
     
 
-    @LazyCollection(LazyCollectionOption.FALSE)
-	@OneToMany
-	@JoinColumn(name = "product_id")
-	@EqualsAndHashCode.Exclude
-	private List<Brand> brands  = new ArrayList<>();;
+	@OneToOne
+	@JoinColumn(name = "brand_id")
+	private Brand brand;
 	
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@OneToMany
@@ -151,12 +150,12 @@ public class Product {
 		
 	}
 
-	public void setBrands(List<Brand> brandlements) {
-		this.brands = brandlements;
+	public void setBrand(Brand brand) {
+		this.brand = brand;
 	}
 
-	public List<Brand> getBrands() {
-		return brands;
+	public Brand getBrand() {
+		return brand;
 	}
 	
 	public List<Category> getCategories() {

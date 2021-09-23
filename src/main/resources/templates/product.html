@@ -66,12 +66,12 @@
 	    	</div>
 	    	<div class="">
 	    	
-        	 <select th:field="*{brands}" 
+        	 <select th:field="*{brand}" 
 					class="selectpicker " data-live-search=true 
 	        	 	data-actions-box="true" 
-	        	 	data-selected-text-format="count" multiple 
-	        	 	title="Select Brands"
-	        	 	data-header="Select brands">
+	        	 	data-selected-text-format="count" 
+	        	 	title="Select a Brand"
+	        	 	data-header="Select a brand">
 	        	 	
 	        	 	<th:block th:each="brd : ${allBrands}">
 	        	 		<option th:text="${brd.name}" th:value="${brd.id}"  />
