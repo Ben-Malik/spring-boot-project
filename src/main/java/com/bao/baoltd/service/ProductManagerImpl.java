@@ -1,8 +1,7 @@
 package com.bao.baoltd.service;
 
 import com.bao.baoltd.enums.ProductType;
-import com.bao.baoltd.model.Brand;
-import com.bao.baoltd.model.Category;
+
 import com.bao.baoltd.model.Product;
 import com.bao.baoltd.repository.ProductRepository;
 import com.bao.baoltd.repository.ProductSpecification;

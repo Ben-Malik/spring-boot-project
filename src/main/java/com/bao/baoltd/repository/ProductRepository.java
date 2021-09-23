@@ -1,7 +1,5 @@
 package com.bao.baoltd.repository;
 
-import com.bao.baoltd.model.Brand;
-import com.bao.baoltd.model.Category;
 import com.bao.baoltd.model.Product;
 import org.springframework.stereotype.Repository;
 
@@ -33,9 +31,4 @@ public interface ProductRepository extends JpaRepository<Product, Long>, JpaSpec
 	@Query("SELECT DISTINCT b.name FROM Brand b")
 	List<String> findAllBrands();
 
-	@Query("SELECT DISTINCT * FROM Category")
-	List<Category> getMyCategories();
-	
-	@Query("SELECT DISTINCT * FROM Brand")
-	List<Brand> getMyBrands();
 }

@@ -58,7 +58,7 @@
         	 	data-header="Select categories">
    				<option th:each="category, categoryStat : ${allCategories}"
 	                    th:text="${category.name}"
-	                    	                    th:name="${categories[__${categoryStat.index}__].id}" th:value="${category.id}">
+	                    	                    >
 			</select>
 		    	<span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>
 	    	</div>
@@ -72,7 +72,7 @@
         	 	data-header="Select brands for this product">
    				<option th:each="brand, brandStat : ${allBrands}"
 	                    th:text="${brand.name}"
-	                    th:name="${brands[__${brandStat.index}__].id}"  th:value="${brand.id}">
+	                     >
 			</select>
 
 					    	

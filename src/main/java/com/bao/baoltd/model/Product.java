@@ -3,7 +3,9 @@ package com.bao.baoltd.model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -19,6 +21,7 @@ import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -27,7 +30,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 		attributeNodes= { @NamedAttributeNode(value="brands"), @NamedAttributeNode(value="categories") }
 	)
 @Table(name = "product",  schema = "public")
-@Data
+@Setter
+@Getter
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -58,19 +62,26 @@ public class Product {
     
     @Column(name = "picture")
 	private String picture;
+    
+    public Product() {}
+    
 
-	@OneToMany(mappedBy="product", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonIgnore
 	@EqualsAndHashCode.Exclude
 	private Set<Brand> brands  = new HashSet<>();;
 	
-	@OneToMany(mappedBy="product", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+	@OneToMany(mappedBy="product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JsonIgnore
 	@EqualsAndHashCode.Exclude
 	private Set<Category> categories  = new HashSet<>();
 
 	public String getName() {
 		return name;
+	}
+	
+	public Long getId() {
+		return id;
 	}
 
 	public int getCount() {
@@ -136,4 +147,11 @@ public class Product {
 		this.brands = brandlements;
 	}
 
+	public Set<Brand> getBrands() {
+		return brands;
+	}
+	
+	public Set<Category> getCategories() {
+		return categories;
+	}
 }

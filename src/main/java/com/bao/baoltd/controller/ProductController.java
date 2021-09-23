@@ -2,6 +2,8 @@ package com.bao.baoltd.controller;
 
 import com.bao.baoltd.model.Product;
 import com.bao.baoltd.model.ProductBuilder;
+import com.bao.baoltd.service.BrandManager;
+import com.bao.baoltd.service.CategoryManager;
 import com.bao.baoltd.service.ProductManager;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -29,6 +29,12 @@ public class ProductController {
 
 	@Autowired
 	ProductManager productManager;
+	
+	@Autowired
+	CategoryManager categoryManager;
+	
+	@Autowired
+	BrandManager brandManager;
 	
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String getProducts(Model model) {
@@ -56,12 +62,14 @@ public class ProductController {
     
     @RequestMapping("/add")
 	public String addArticle(Model model) {
+		model.addAttribute("allBrands", brandManager.getAllBrands());
+
 		Product product = new Product();
 		product.setBrands(new HashSet<>());
 		product.setCategories(new HashSet<>());
 		model.addAttribute("product", product);
-		model.addAttribute("allBrands", productManager.getBrands());
-		model.addAttribute("allCategories", productManager.getCategories());
+		System.out.println(brandManager.getAllBrands());
+		model.addAttribute("allCategories", categoryManager.getAllCategories());
 		return "product";
 	}
 	
