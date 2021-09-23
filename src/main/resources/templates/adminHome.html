@@ -21,7 +21,25 @@
               <a class="dropdown-item" th:href="@{/product/add}">Add new product</a> 
               <a class="dropdown-item" th:href="@{/product/productList}">View product list</a> 
             </div>
-          </li>   
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> CATEGORIES </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" th:href="@{/category/add}">Add new Category</a> 
+              <a class="dropdown-item" th:href="@{/category/categoryList}">View category list</a> 
+            </div>
+          </li> 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+              role="button" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false"> BRANDS </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" th:href="@{/brand/add}">Add new Brand</a> 
+              <a class="dropdown-item" th:href="@{/brand/brandList}">View brand list</a> 
+            </div>
+          </li>      
         </ul>
         <ul class="navbar-nav ml-auto">
            <li class="nav-item">
