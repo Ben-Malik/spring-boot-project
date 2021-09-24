@@ -1,19 +1,20 @@
 package com.bao.baoltd.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
@@ -23,9 +24,9 @@ import lombok.Setter;
 @Table(name = "category")
 public class Category {
 
-	public Category(String val, Product product) {
+	public Category(String val, Set<Product> product) {
 		this.name = val;
-		this.product = product;
+		this.products = product;
 	}
 		
 	public Category(String name) {
@@ -37,7 +38,7 @@ public class Category {
 	
 	public Category(Category category) {
 		this.name = category.getName();
-		this.product = category.getProduct();
+		this.products = category.getProducts();
 		
 	}
 	
@@ -53,9 +54,13 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToOne
-	@JoinColumn(name="product_id")
-	private Product product;
+	@ManyToMany(fetch = FetchType.LAZY,
+     cascade = {
+     CascadeType.PERSIST,
+     CascadeType.MERGE
+     },
+     mappedBy = "categories")
+	private Set<Product> products = new HashSet<>();
 	
 	@Column(name = "name")
 	private String name;
@@ -68,8 +73,8 @@ public class Category {
 		return name;
 	}
 	
-	public Product getProduct() {
-		return product;
+	public Set<Product> getProducts() {
+		return products;
 	}
 	
 }

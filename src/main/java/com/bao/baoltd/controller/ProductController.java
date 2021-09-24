@@ -69,7 +69,7 @@ public class ProductController {
 
 		Product product = new Product();
 		product.setBrand(new Brand());
-		product.setCategories(new ArrayList<>());
+		product.setCategories(new HashSet<>());
 		model.addAttribute("product", product);
 		model.addAttribute("allBrands", brandManager.getAllBrands());
 		model.addAttribute("allCategories", categoryManager.getAllCategories());

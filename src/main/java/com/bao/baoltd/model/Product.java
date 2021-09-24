@@ -1,15 +1,11 @@
 package com.bao.baoltd.model;
 
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -20,17 +16,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
-
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @NamedEntityGraph(
 		name= "ProductComplete",
@@ -74,10 +68,15 @@ public class Product {
 	private Brand brand;
 	
 	@LazyCollection(LazyCollectionOption.FALSE)
-	@OneToMany
 	@EqualsAndHashCode.Exclude
-	@JoinColumn(name = "product_id")
-	private List<Category> categories  = new ArrayList<>();
+	@ManyToMany(
+    cascade = {
+        CascadeType.MERGE
+    })
+	@JoinTable(name = "product_category",
+    joinColumns = { @JoinColumn(name = "product_id") },
+    inverseJoinColumns = { @JoinColumn(name = "category_id") })
+	private Set<Category> categories  = new HashSet<>();
 
 	public String getName() {
 		return name;
@@ -143,7 +142,7 @@ public class Product {
 		this.count = count;
 	}
 
-	public void setCategories(List<Category> catElements) {
+	public void setCategories(Set<Category> catElements) {
 		this.categories = catElements;
 		
 	}
@@ -156,7 +155,7 @@ public class Product {
 		return brand;
 	}
 	
-	public List<Category> getCategories() {
+	public Set<Category> getCategories() {
 		return categories;
 	}
 }

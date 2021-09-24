@@ -75,9 +75,11 @@ public class ProductBuilder {
 	
 		
 		if (this.categories != null && !this.categories.isEmpty() ) {
-			List<Category> catElements = new ArrayList<>();
+			Set<Category> catElements = new HashSet<>();
+			Set<Product> products = new HashSet<>();
+			products.add(product);
 			for (String val : this.categories) {
-				catElements.add(new Category(val,product));
+				catElements.add(new Category(val,products));
 			}
 			product.setCategories(catElements);
 		}		
