@@ -11,7 +11,6 @@ import javax.persistence.criteria.Root;
 
 import org.springframework.data.jpa.domain.Specification;
 
-import com.bao.baoltd.model.Brand;
 import com.bao.baoltd.model.Category;
 import com.bao.baoltd.model.Product;
 
@@ -32,11 +31,7 @@ public class ProductSpecification {
                 	Join<Product, Category> joinSize = root.join("categories");
                 	predicates.add(criteriaBuilder.and(joinSize.get("name").in(categories)));
                 }   
-                if (brands!=null && !brands.isEmpty()) {
-                	Join<Product, Brand> joinSize = root.join("brands");
-                	predicates.add(criteriaBuilder.and(joinSize.get("name").in(brands)));
-                }  
-                
+               
                 if(search!=null && !search.isEmpty()) {
                     predicates.add(criteriaBuilder.and(criteriaBuilder.like(root.get("title"), "%"+search+"%")));
                 }

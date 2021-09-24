@@ -7,9 +7,13 @@
 
   <div class="container page-content">
     <form action="#" th:action="@{/product/add}" th:object="${product}" method="post">
-     	<legend class="center-block">
+     	<legend th:if="${product.id == null}" class="center-block">
           	New Product Information
         </legend>
+        <legend th:if="${product.id != null}" class="center-block">
+          	Edit Product
+        </legend>
+        <input th:field="*{id}" type="hidden" th:value="${product.id}"/>
 	    <div class="form-group row">
 	        <label for="name" class="col-sm-2 col-form-label">Name</label>
 			<div class="col-sm-10">
@@ -55,10 +59,13 @@
 	        	 	data-actions-box="true" 
 	        	 	data-selected-text-format="count" multiple 
 	        	 	title="Select Categories"
-	        	 	data-header="Select categories">
+	        	 	data-header="Select categories"
+	        	 	th:attr="data-initial=${product.categories}">
 	        	 	
 	        	 	<th:block th:each="cat : ${allCategories}">
-	        	 		<option th:text="${cat.name}" th:value="${cat.id}"  />
+	        	 		<option th:text="${cat.name}" th:value="${cat.id}"  
+								
+    							 />
 	        	 	</th:block>
    				
 			</select>
@@ -66,19 +73,7 @@
 	    	</div>
 	    	<div class="">
 	    	
-        	 <select th:field="*{brand}" 
-					class="selectpicker " data-live-search=true 
-	        	 	data-actions-box="true" 
-	        	 	data-selected-text-format="count" 
-	        	 	title="Select a Brand"
-	        	 	data-header="Select a brand">
-	        	 	
-	        	 	<th:block th:each="brd : ${allBrands}">
-	        	 		<option th:text="${brd.name}" th:value="${brd.id}"  />
-	        	 	</th:block>
-   				
-			</select>
-
+        	
 					    	
 				<span th:if="${#fields.hasErrors('count')}" th:errors="*{count}"></span>
 	    	</div>

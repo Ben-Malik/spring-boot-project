@@ -48,12 +48,12 @@ public class ProductManagerImpl implements ProductManager{
 
 	@Override
 	public List<String> getAllBrands() {
-		return repository.findAllBrands();
+		return null;
 	}
 
 	@Override
 	public List<String> getAllCategories() {
-		return repository.findAllCategories();
+		return null;
 	}
 	
 	

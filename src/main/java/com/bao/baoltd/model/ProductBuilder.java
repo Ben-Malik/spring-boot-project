@@ -15,7 +15,6 @@ public class ProductBuilder {
 	private String boxCode;
 	private String description;
 	private List<String> categories;
-	private Brand brand;
 
 	public ProductBuilder() {
 	}
@@ -45,10 +44,7 @@ public class ProductBuilder {
 		return this;
 	}
 	
-	public ProductBuilder ofBrand(String brand) {
-		this.brand = new Brand(brand);
-		return this;
-	}
+	
 	
 	
 	public ProductBuilder withCode(String code) {
@@ -83,10 +79,7 @@ public class ProductBuilder {
 			}
 			product.setCategories(catElements);
 		}		
-		if (this.brand != null) {
 			
-			product.setBrand(new Brand(brand));
-		}		
 		
 		
 		return product;

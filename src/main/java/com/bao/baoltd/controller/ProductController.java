@@ -1,9 +1,7 @@
 package com.bao.baoltd.controller;
 
-import com.bao.baoltd.model.Brand;
 import com.bao.baoltd.model.Product;
 import com.bao.baoltd.model.ProductBuilder;
-import com.bao.baoltd.service.BrandManager;
 import com.bao.baoltd.service.CategoryManager;
 import com.bao.baoltd.service.ProductManager;
 
@@ -13,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,6 +20,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -35,8 +35,7 @@ public class ProductController {
 	@Autowired
 	CategoryManager categoryManager;
 	
-	@Autowired
-	BrandManager brandManager;
+
 	
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String getProducts(Model model) {
@@ -64,24 +63,31 @@ public class ProductController {
     
     
     @RequestMapping("/add")
-	public String addArticle(Model model) {
-		model.addAttribute("allBrands", brandManager.getAllBrands());
+	public String addProductGet(Model model) {
 
 		Product product = new Product();
-		product.setBrand(new Brand());
 		product.setCategories(new HashSet<>());
 		model.addAttribute("product", product);
-		model.addAttribute("allBrands", brandManager.getAllBrands());
 		model.addAttribute("allCategories", categoryManager.getAllCategories());
 		return "product";
 	}
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
-	public String addArticlePost(@Validated @ModelAttribute("product") Product product, HttpServletRequest request) {
+	public String addProductPost(@Validated @ModelAttribute("product") Product product, HttpServletRequest request) {
 			
 		productManager.create(product);	
 		return "redirect:productList";
 	}
-    
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	public String showEditProduct( @PathVariable("id") Long id, Model model) {
+		
+		Product product = productManager.getById(id).get();
+		List<Long> categoryIds = product.getCategories().stream().map(cat -> cat.getId()).collect(Collectors.toList());
+		model.addAttribute("product", product);
+		System.out.println(categoryIds);
+		model.addAttribute("currentCat", categoryIds);
+		model.addAttribute("allCategories", categoryManager.getAllCategories());
+		return "product";
+	}
     
 }

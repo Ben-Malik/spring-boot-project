@@ -19,16 +19,11 @@ import org.springframework.data.jpa.repository.Query;
 @Repository("ProductRepository")
 public interface ProductRepository extends JpaRepository<Product, Long>, JpaSpecificationExecutor<Product> {
 	
-	@EntityGraph(attributePaths = { "categories", "brands" })
+	@EntityGraph(attributePaths = { "categories" })
 	List<Product> findAllEagerBy();	
 		
-	@EntityGraph(attributePaths = { "categories", "brands" })
+	@EntityGraph(attributePaths = { "categories" })
 	Optional<Product> findById(Long id);
 	
-	@Query("SELECT DISTINCT c.name FROM Category c")
-	List<String> findAllCategories();
 	
-	@Query("SELECT DISTINCT b.name FROM Brand b")
-	List<String> findAllBrands();
-
 }

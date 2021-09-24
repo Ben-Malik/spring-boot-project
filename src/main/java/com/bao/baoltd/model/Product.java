@@ -29,7 +29,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 
 @NamedEntityGraph(
 		name= "ProductComplete",
-		attributeNodes= { @NamedAttributeNode(value="brand"), @NamedAttributeNode(value="categories") }
+		attributeNodes= {  @NamedAttributeNode(value="categories") }
 	)
 @Table(name = "product",  schema = "public")
 @Setter
@@ -63,11 +63,7 @@ public class Product {
     
     @Column(name = "picture")
 	private String picture;
-    
-	@ManyToOne
-	@JoinColumn(name = "brand_id")
-	private Brand brand;
-	
+  
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@EqualsAndHashCode.Exclude
 	@ManyToMany(
@@ -148,13 +144,6 @@ public class Product {
 		
 	}
 
-	public void setBrand(Brand brand) {
-		this.brand = brand;
-	}
-
-	public Brand getBrand() {
-		return brand;
-	}
 	
 	public Set<Category> getCategories() {
 		return categories;
