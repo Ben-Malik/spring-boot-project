@@ -7,7 +7,7 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
 http://www.liquibase.org/xml/ns/pro 
 http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
-	<changeSet  author="ben-malik (generated)" id="1439225004329-malik-MI-1343e910-154">
+	<changeSet  author="ben-malik (generated)" id="143922580043e29-malik-MI-1343e910-154">
         <!-- createTable tableName="user">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
@@ -128,7 +128,17 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
         </createTable>
 	 -->
 	  
-         
+         <createTable tableName="category">
+            <column autoIncrement="true" name="id" type="BIGINT">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+          	<column name="product_id" type="BIGINT">
+            	<constraints nullable="true" foreignKeyName="fk_product_category" references="product(id)"/>
+          	</column>
+        </createTable>
 	</changeSet>
 	<!-- 
 		<changeSet id="create-category-and-brand-for-product-1" author="ben-malik">
@@ -182,61 +192,21 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
 	</changeSet>
 	-->
  
-	
-	<changeSet id="add-image-column0-414476" author="ben-malik">
-	<createTable tableName="product">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true"/>
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="code" type="varchar(5)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="description" type="varchar(255)"/>
-           
-            <column name="price" type="FLOAT">
-                <constraints nullable="false"/>
-            </column>
-            <column name="BOX_CODE" type="VARCHAR(10)">
-				<constraints nullable="true"/>
-			</column>  
-			<column name="COUNT" type="INTEGER">
-				<constraints nullable="false"/>
-			</column>
-        </createTable>
-	 <createTable tableName="brand">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true"/>
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-			
-      
-        </createTable>
-        
-         <createTable tableName="category">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true"/>
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-          	<column name="product_id" type="BIGINT">
-            	<constraints nullable="true" foreignKeyName="fk_product_category" references="product(id)"/>
-          	</column>
-        </createTable>
+	        <!-- 
+
+	<changeSet id="add-image-column0-4144764" author="ben-malik">
+
+         
 		 <addColumn tableName="product">
 		 <column name="picture" type="varchar(255)"/>
 	</addColumn>
 	</changeSet>
 	 	
-	<changeSet id="add-category-foreign-key-toproduct" author="ben-malik">
+	<changeSet id="add-category-foreign-key-toproduct94" author="ben-malik">
 		<addColumn tableName="product"> 
 		 <column name="brand_id" type="BIGINT">
-            <constraints nullable="true" foreignKeyName="fk_user_brand" references="brand(id)"/>
+            <constraints nullable="true" foreignKeyName="fk_brand_product" references="brand(id)"/>
           </column></addColumn>
 	</changeSet>
+	-->
 </databaseChangeLog>

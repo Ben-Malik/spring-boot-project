@@ -9,7 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,8 +20,7 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
-@Table(name = "category", uniqueConstraints = { @UniqueConstraint(columnNames = { "name"}) })
-
+@Table(name = "category")
 public class Category {
 
 	public Category(String val, Product product) {
@@ -36,8 +34,8 @@ public class Category {
 	
 	
 	public Category() {}
+	
 	public Category(Category category) {
-		this.id = category.getId();
 		this.name = category.getName();
 		this.product = category.getProduct();
 		

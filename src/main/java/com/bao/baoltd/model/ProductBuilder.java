@@ -15,7 +15,7 @@ public class ProductBuilder {
 	private String boxCode;
 	private String description;
 	private List<String> categories;
-	private String brand;
+	private Brand brand;
 
 	public ProductBuilder() {
 	}
@@ -46,7 +46,7 @@ public class ProductBuilder {
 	}
 	
 	public ProductBuilder ofBrand(String brand) {
-		this.brand = brand;
+		this.brand = new Brand(brand);
 		return this;
 	}
 	

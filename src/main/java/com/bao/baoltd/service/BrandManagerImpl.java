@@ -29,6 +29,7 @@ public class BrandManagerImpl implements BrandManager{
 	}
 
 	@Override
+	@Transactional
 	public Brand create(Brand brand) {
 		return repository.save(brand);
 	}

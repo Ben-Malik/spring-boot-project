@@ -47,6 +47,7 @@ public class ProductController {
     @RequestMapping("/productList")
 	public String productList(Model model) {
 		List<Product> products = productManager.getAllProducts();
+		
 		model.addAttribute("products", products);
 		return "productList";
 	}
@@ -77,17 +78,7 @@ public class ProductController {
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public String addArticlePost(@Validated @ModelAttribute("product") Product product, HttpServletRequest request) {
-		Product newProduct = new ProductBuilder()
-				.withTitle(product.getName())
-				.stockAvailable(product.getCount())
-				.withPrice(product.getPrice())
-				.withCode(product.getCode())
-				.withBoxCode(product.getBoxCode())
-				.withDescription(product.getDescription())
-				.imageLink("")
-				.ofCategories(null)
-				.ofBrand(null)
-				.build();		
+			
 		productManager.create(product);	
 		return "redirect:productList";
 	}

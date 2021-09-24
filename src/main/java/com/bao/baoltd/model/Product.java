@@ -40,7 +40,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Setter
 @Getter
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
 public class Product {
 
@@ -70,9 +69,6 @@ public class Product {
     @Column(name = "picture")
 	private String picture;
     
-//    public Product() {}
-    
-
 	@OneToOne
 	@JoinColumn(name = "brand_id")
 	private Brand brand;
@@ -86,6 +82,8 @@ public class Product {
 	public String getName() {
 		return name;
 	}
+	
+	public Product() {}
 	
 	public Long getId() {
 		return id;

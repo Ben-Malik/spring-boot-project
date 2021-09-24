@@ -24,6 +24,7 @@ public class CategoryManagerImpl implements CategoryManager{
 	}
 
 	@Override
+	@Transactional
 	public Optional<Category> getById(Long id) {
 		return repository.findById(id);
 	}

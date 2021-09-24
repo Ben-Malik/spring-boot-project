@@ -1,6 +1,5 @@
 package com.bao.baoltd.service;
 
-import com.bao.baoltd.enums.ProductType;
 
 import com.bao.baoltd.model.Product;
 import com.bao.baoltd.repository.ProductRepository;
