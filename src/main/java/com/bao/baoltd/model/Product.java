@@ -18,6 +18,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
 import javax.persistence.OneToOne;
@@ -63,7 +64,7 @@ public class Product {
     @Column(name = "picture")
 	private String picture;
     
-	@OneToOne
+	@ManyToOne
 	@JoinColumn(name = "brand_id")
 	private Brand brand;
 	

@@ -7,7 +7,7 @@ xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
 http://www.liquibase.org/xml/ns/pro 
 http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
-	<changeSet  author="ben-malik (generated)" id="143924258004343e29-malik-MI-1343e910-154">
+	<changeSet  author="ben-malik (generated)" id="14392s42538004343e29-malik-MI-1343e910-154">
         <!-- createTable tableName="user">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true"/>
@@ -194,6 +194,14 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
         <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="product_category"
                                  constraintName="FK_it77eq964jhfqtu54081ebtio" deferrable="false"
                                  initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category"/>
+    </changeSet>
+    
+    <changeSet id="addforeignkey-for-brand3" author="benmalik">
+    	<addColumn tableName="brand">
+    	
+    	 <column name="product_id" type="BIGINT">
+            <constraints nullable="false" foreignKeyName="fk_product_brand" references="product(id)"/>
+          </column></addColumn>
     </changeSet>
 	<!-- 
 		<changeSet id="create-category-and-brand-for-product-1" author="ben-malik">
