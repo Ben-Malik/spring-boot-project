@@ -34,7 +34,7 @@
         <td th:text="${product.boxCode}"></td>
         <td><a th:href="@{'/product/edit/' + ${product.id}}" class="badge badge-primary">EDIT</a>  
 
-            <a th:href="@{'/product/delete/' + {product.id}}" class="badge badge-danger">DELETE </a> </td>
+            <a th:href="@{'/product/delete/' + ${product.id}}" class="badge badge-danger">DELETE </a> </td>
       </tr>
     </tbody>
   </table>

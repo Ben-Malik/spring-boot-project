@@ -13,7 +13,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -54,9 +58,10 @@ public class Category {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@ManyToMany(fetch = FetchType.LAZY,
+	@LazyCollection(LazyCollectionOption.FALSE)
+	@EqualsAndHashCode.Exclude
+	@ManyToMany(
      cascade = {
-     CascadeType.PERSIST,
      CascadeType.MERGE
      },
      mappedBy = "categories")

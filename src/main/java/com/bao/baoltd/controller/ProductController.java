@@ -91,5 +91,11 @@ public class ProductController {
 		return "product";
 	}
 	
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	public String deleteProduct(@PathVariable("id") Long id, Model model) {
+		productManager.deleteById(id);
+		
+		return "redirect:/product/productList";
+	}
     
 }
