@@ -79,6 +79,7 @@ public class ProductController {
 		productManager.create(product);	
 		return "redirect:productList";
 	}
+	
 	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
 	public String showEditProduct( @PathVariable("id") Long id, Model model) {
 		

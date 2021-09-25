@@ -17,8 +17,8 @@
       <tr th:each="cat : ${categories}">
         <td th:text="${cat.name}"></td>
        
-        	<td><a th:href="@{/category/edit?id=}+${cat.id}" class="badge badge-primary">EDIT</a>  
-            <a th:href="@{/category/delete?id=}+${cat.id}" class="badge badge-danger">DELETE </a> </td>
+        	<td><a th:href="@{'/category/edit/' + ${cat.id}}" class="badge badge-primary">EDIT</a>  
+            <a th:href="@{'/category/delete/' + ${cat.id}}" class="badge badge-danger">DELETE </a> </td>
       </tr>
     </tbody>
   </table>

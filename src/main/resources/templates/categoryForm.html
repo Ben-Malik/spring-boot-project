@@ -7,9 +7,14 @@
 
   <div class="container page-content">
     <form action="#" th:action="@{/category/add}" th:object="${category}" method="post">
-     	<legend class="center-block">
+     	<legend th:if="${category.id == null}" class="center-block">
           	New Category
         </legend>
+        
+        <legend th:if="${category.id != null}" class="center-block">
+          	Edit Category
+        </legend>
+        <input type="hidden" th:field="*{id}" th:value="${category.id}" />
 	    <div class="form-group row">
 	        <label for="name" class="col-sm-2 col-form-label">Name</label>
 			<div class="col-sm-10">
