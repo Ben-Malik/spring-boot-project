@@ -59,14 +59,12 @@
 	        	 	data-actions-box="true" 
 	        	 	data-selected-text-format="count" multiple 
 	        	 	title="Select Categories"
-	        	 	data-header="Select categories"
-	        	 	th:attr="data-initial=${product.categories}">
+	        	 	data-header="Select categories">
 	        	 	
-	        	 	<th:block th:each="cat : ${allCategories}">
-	        	 		<option th:text="${cat.name}" th:value="${cat.id}"  
-								
-    							 />
-	        	 	</th:block>
+	        	 		  <option th:each="cat : ${allCategories}"                                        
+                				th:value="${cat.id}" 
+                				th:text="${cat.name}">Part name and serial No.  
+						</option>
    				
 			</select>
 		    	<span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span>

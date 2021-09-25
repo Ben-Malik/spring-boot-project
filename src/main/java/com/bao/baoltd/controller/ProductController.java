@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.beans.PropertyEditorSupport;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -89,5 +90,6 @@ public class ProductController {
 		model.addAttribute("allCategories", categoryManager.getAllCategories());
 		return "product";
 	}
+	
     
 }
