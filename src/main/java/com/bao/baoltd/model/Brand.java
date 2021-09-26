@@ -3,6 +3,7 @@ package com.bao.baoltd.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,10 +25,15 @@ public class Brand {
 	@Column(name = "name")
 	private String name;
 
-    @OneToMany(mappedBy="brand")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy="brand")
 	Set<Product> products = new HashSet<>();
 	public Long getId() {
 		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "Brand [id=" + id + ", name=" + name + "]";
 	}
 
 	public void setId(Long id) {

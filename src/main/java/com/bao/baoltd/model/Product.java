@@ -73,9 +73,17 @@ public class Product {
     inverseJoinColumns = { @JoinColumn(name = "category_id") })
 	private Set<Category> categories  = new HashSet<>();
 
-	 @ManyToOne
-	 @JoinColumn(name="brand_id", nullable=true)
+	 @ManyToOne(cascade = CascadeType.ALL)
 	private Brand brand;
+	 
+	public Brand getBrand() {
+		return brand;
+	}
+
+	public void setBrand(Brand brand) {
+		this.brand = brand;
+	}
+
 	public String getName() {
 		return name;
 	}

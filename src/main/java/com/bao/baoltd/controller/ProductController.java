@@ -47,7 +47,12 @@ public class ProductController {
     @RequestMapping("/productList")
 	public String productList(Model model) {
 		List<Product> products = productManager.getAllProducts();
-		
+		for (Product p: products) {
+			if (p.getBrand() != null) {
+				System.out.println("Product brand: " + p.getBrand().toString());
+			}
+
+		}
 		model.addAttribute("products", products);
 		return "productList";
 	}
