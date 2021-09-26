@@ -3,6 +3,7 @@ package com.bao.baoltd.controller;
 import org.springframework.stereotype.Controller;
 
 import java.security.Principal;
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.List;
 
@@ -24,6 +25,8 @@ import com.bao.baoltd.model.User;
 import com.bao.baoltd.service.UserManager;
 import com.bao.baoltd.service.UserSecurityManager;
 
+import utility.GreetingUtility;
+
 @Controller
 public class AccountController {
 	
@@ -32,6 +35,7 @@ public class AccountController {
 	
 	@Autowired
 	private UserSecurityManager userSecurityManager;
+
 
 	@RequestMapping("/login")
 	public String log(Model model) {
@@ -45,6 +49,17 @@ public class AccountController {
 		User user = (User) authentication.getPrincipal();
 		model.addAttribute("user", user);
 		return "myProfile";
+	}
+	
+	@RequestMapping("/admin")
+	public String admin(Model model, Authentication authentication) {				
+		User user = (User) authentication.getPrincipal();
+		
+		GreetingUtility greeting = new GreetingUtility(LocalTime.now());
+		String message = greeting.get() + ", " + user.getUsername();
+		model.addAttribute("user", user);
+		model.addAttribute("welcomeMessage", message);
+		return "admin";
 	}
 	
 	@RequestMapping(value="/newUser", method=RequestMethod.POST)
