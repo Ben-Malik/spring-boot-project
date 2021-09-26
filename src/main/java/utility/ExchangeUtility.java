@@ -56,6 +56,12 @@ public class ExchangeUtility {
 		}
 	}
 
+    /**
+     * A helper method to create an exchange object with given properties.
+     * @param name the name of the exchange.
+     * @param amount the amount of the exchange.
+     * @return an entity of Exchange.
+     */
 	private Exchange createExchange(String name, String amount) {
 		Exchange exchange = new Exchange();
 		exchange.setAmount(new BigDecimal(amount));
