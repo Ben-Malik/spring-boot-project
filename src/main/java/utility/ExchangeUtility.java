@@ -1,6 +1,7 @@
 package utility;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -43,8 +44,11 @@ public class ExchangeUtility {
 		Exchange eur = manager.getByName("euro").isPresent() ? manager.getByName("euro").get() : null;
 		if (usd != null && euro != null) {
 			usd.setAmount(new BigDecimal(dollar));
+			usd.setCreatedAt(new Date());
 			manager.create(usd);
+			
 			eur.setAmount(new BigDecimal(euro));
+			eur.setCreatedAt(new Date());
 			manager.create(eur);
 		} else {
 			manager.create(createExchange("dollar", dollar));
@@ -56,7 +60,7 @@ public class ExchangeUtility {
 		Exchange exchange = new Exchange();
 		exchange.setAmount(new BigDecimal(amount));
 		exchange.setName(name);
-
+		exchange.setCreatedAt(new Date());
 		return exchange;
 	}
 	

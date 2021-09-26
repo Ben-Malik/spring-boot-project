@@ -227,6 +227,13 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
             </column>
 		</createTable>
 	</changeSet>
+	
+	<changeSet id="add-date-time-for-exchange43" author="benmalik">
+		<addColumn tableName="exchange">
+		 <column name="created_at" type="DATE">
+          </column>
+	</addColumn>
+	</changeSet>
 	<!-- 
 		<changeSet id="create-category-and-brand-for-product-1" author="ben-malik">
 		        

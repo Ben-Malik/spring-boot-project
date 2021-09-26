@@ -1,6 +1,7 @@
 package com.bao.baoltd.model;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,9 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @AllArgsConstructor
@@ -25,6 +24,17 @@ public class Exchange {
 	
 	@Column(name = "amount")
 	private BigDecimal amount;
+
+	private Date createdAt = new Date();
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+
+
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
 
 	public Long getId() {
 		return id;
