@@ -12,7 +12,10 @@ public interface ExchangeManager {
     Optional<Exchange> getById(Long id);
     
     Exchange create(Exchange exchange);
+    
+    Optional<Exchange> getByName(String name);
 
     void deleteById(Long id);
+    
 
 }
