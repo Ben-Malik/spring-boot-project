@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.bao.baoltd.model.Brand;
-import com.bao.baoltd.model.Category;
 import com.bao.baoltd.service.BrandManager;
 
 @Controller
@@ -27,9 +26,9 @@ public class BrandController {
 	
 	@RequestMapping(value = "/add", method = RequestMethod.GET)
 	public String showAddNewCategoryForm(Model model) {
-		model.addAttribute("category", new Category());
+		model.addAttribute("brand", new Brand());
 
-		return "categoryForm";
+		return "brandForm";
 	}
 	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -39,7 +38,7 @@ public class BrandController {
 		return "redirect:brandList";
 	}
 
-	 @RequestMapping("/categoryList")
+	 @RequestMapping("/brandList")
 		public String brandList(Model model) {
 			List<Brand> brands = brandManager.getAllBrands();
 			model.addAttribute("brands", brands);

@@ -17,8 +17,8 @@
       <tr th:each="brd : ${brands}">
         <td th:text="${brd.name}"></td>
        
-        	<td><a th:href="@{/brand/edit?id=}+${brd.id}" class="badge badge-primary">EDIT</a>  
-            <a th:href="@{/brand/delete?id=}+${brd.id}" class="badge badge-danger">DELETE </a> </td>
+        	<td><a th:href="@{'/brand/edit/'+${brd.id}}" class="badge badge-primary">EDIT</a>  
+            <a th:href="@{'/brand/delete/'+${brd.id}}" class="badge badge-danger">DELETE </a> </td>
       </tr>
     </tbody>
   </table>

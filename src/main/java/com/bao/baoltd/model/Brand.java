@@ -27,6 +27,7 @@ public class Brand {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="brand")
 	Set<Product> products = new HashSet<>();
+    
 	public Long getId() {
 		return id;
 	}

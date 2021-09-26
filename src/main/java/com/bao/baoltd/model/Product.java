@@ -73,7 +73,7 @@ public class Product {
     inverseJoinColumns = { @JoinColumn(name = "category_id") })
 	private Set<Category> categories  = new HashSet<>();
 
-	 @ManyToOne
+	 @ManyToOne(fetch = FetchType.EAGER)
 	 @JoinColumn(name = "brand_id")
 	@EqualsAndHashCode.Exclude
 	private Brand brand;
