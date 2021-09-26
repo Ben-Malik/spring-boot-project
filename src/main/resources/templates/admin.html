@@ -1,10 +1,104 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org./1999/xhtml" xmlns:sec="http://www.w3.org./1999/xhtml">
 <head th:replace="fragments/header :: common-header" />
-<body>
+
+<body th:style="'background: url(/images/background/1.jpeg) no-repeat center center fixed;  height: 100%;
+	  /* Center and scale the image nicely */
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  background-size: cover;'">
   <div th:replace="adminHome :: navbarAdmin"> </div>
   <div class="container page-content">
-    <h1 th:text="${welcomeMessage}">Welcome</h1>
+    <h1 class="welcome-message" th:text="${welcomeMessage}">Welcome</h1>
+    
+    <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-blue">
+                    <div class="inner">
+                        <h3> 13436 </h3>
+                        <p> Total Products Available </p>
+                    </div>
+                    <div class="icon">
+						<i class="fa fa-product-hunt" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-red">
+                    <div class="inner">
+                        <h3> 13436 </h3>
+                        <p> Products with no stock </p>
+                    </div>
+                    <div class="icon">
+<i class="fa fa-thermometer-empty" aria-hidden="true"></i>
+			</div>
+                    <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+			 <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-green">
+                    <div class="inner">
+                        <h3>$ 8.9 </h3>
+                        <p>Turkish Lira/USD </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-usd" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-green">
+                    <div class="inner">
+                        <h3>€ 9.9 </h3>
+                        <p>Turkish Lira/Euro </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-eur" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+              <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-green">
+                    <div class="inner">
+                        <h3>122 </h3>
+                        <p>Mostly Sold </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-money" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-orange">
+                    <div class="inner">
+                        <h3> 5464 </h3>
+                        <p> Newly Created Users </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-user-plus" aria-hidden="true"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <div class="card-box bg-blue">
+                    <div class="inner">
+                        <h3> 723 </h3>
+                        <p> Total Users </p>
+                    </div>
+                    <div class="icon">
+                        <i class="fa fa-users"></i>
+                    </div>
+                    <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                </div>
+            </div>
+        </div>
   </div>
   <div th:replace="fragments/header :: body-scripts"> </div>
 </body>

@@ -11,7 +11,7 @@ body {
   line-height: 1.5;
   color: #606975;
   text-align: left;
-  background-color: #f1f1f1;
+  
 }
 
 a {
@@ -20,7 +20,7 @@ a {
 
 @media (max-width: 768px) { 
   .container {
-    max-width:90%;
+    max-width:95%;
   }
 }
 
@@ -44,6 +44,13 @@ a {
   background-repeat: no-repeat;
   background-size: cover;
   height: 80%;
+}
+
+table {
+	border-bottom-left-radius: 10px;
+	border-bottom-right-radius: 10px;
+	border-top-left-radius: 10px;
+	border-top-left-radius: 10px;
 }
 
 .jumbotron h1 { 

@@ -51,7 +51,7 @@ public class AccountController {
 		User user = (User) authentication.getPrincipal();
 		
 		GreetingUtility greeting = new GreetingUtility(LocalTime.now());
-		String message = greeting.get() + ", " + user.getUsername();
+		String message = greeting.get() + ", " + user.getUsername() + "!";
 		model.addAttribute("user", user);
 		model.addAttribute("welcomeMessage", message);
 		return "admin";
