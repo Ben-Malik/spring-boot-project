@@ -30,7 +30,7 @@
             th:text="${product.brand.getName()}" class="badge badge-secondary mt-1 mr-1" ></span></div>
         </td>
  
-        <td th:text="${product.price}"></td>
+        <td th:text="${'$ ' + product.price}"></td>
         <td th:text="${product.count}"></td>
         <td th:text="${product.boxCode}"></td>
         <td><a th:href="@{'/product/edit/' + ${product.id}}" class="badge badge-primary">EDIT</a>  

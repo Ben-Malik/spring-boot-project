@@ -25,7 +25,7 @@ public class ExchangeUtility {
 	@Autowired
 	private ExchangeManager manager;
 
-    @Scheduled(cron="@hourly")
+    @Scheduled(cron="* */10 * * * *")
 	public void getTheExchanges() throws InterruptedException {
 
 		String urlEuro = "https://free.currconv.com/api/v7/convert?q=EUR_TRY&compact=ultra&apiKey=ac495209d6cdd9e87736";
@@ -60,7 +60,7 @@ public class ExchangeUtility {
      * A helper method to create an exchange object with given properties.
      * @param name the name of the exchange.
      * @param amount the amount of the exchange.
-     * @return an entity of Exchange.
+     * @return 
      */
 	private Exchange createExchange(String name, String amount) {
 		Exchange exchange = new Exchange();
