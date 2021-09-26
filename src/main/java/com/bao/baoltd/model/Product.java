@@ -66,10 +66,8 @@ public class Product {
   
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@EqualsAndHashCode.Exclude
-	@ManyToMany(
-    cascade = {
-        CascadeType.MERGE
-    })
+			  @ManyToMany(fetch = FetchType.EAGER)
+
 	@JoinTable(name = "product_category",
     joinColumns = { @JoinColumn(name = "product_id") },
     inverseJoinColumns = { @JoinColumn(name = "category_id") })
@@ -147,5 +145,33 @@ public class Product {
 	
 	public Set<Category> getCategories() {
 		return categories;
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = (int) (prime * result + id);
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Product other = (Product) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", code=" + code + ", price=" + price + ", description="
+				+ description + ", count=" + count + ", boxCode=" + boxCode + ", picture=" + picture + "]";
 	}
 }

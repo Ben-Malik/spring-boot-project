@@ -15,6 +15,9 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 @Service
 @Transactional
 public class ProductManagerImpl implements ProductManager{
@@ -22,6 +25,9 @@ public class ProductManagerImpl implements ProductManager{
 	@Value("${productmanager.featured-items-number}")
 	private int featuredProductsNumber;
 	
+	@PersistenceContext
+    EntityManager entityManager;
+    
     @Autowired
     private ProductRepository repository;
 
@@ -43,7 +49,11 @@ public class ProductManagerImpl implements ProductManager{
 	@Override
 	@Transactional
 	public Product create(Product product) {
-		return repository.save(product);
+		entityManager.clear();
+		//perform modification on object
+		 entityManager.merge(product);
+		 entityManager.flush();
+		 return product;
 	}
 
 	@Override

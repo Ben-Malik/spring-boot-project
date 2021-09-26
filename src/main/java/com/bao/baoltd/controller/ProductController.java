@@ -75,7 +75,16 @@ public class ProductController {
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public String addProductPost(@Validated @ModelAttribute("product") Product product, HttpServletRequest request) {
-			
+
+		if (product.getId() != null) {
+			Product oldProduct = productManager.getById(product.getId()).get();
+			System.out.println("old: " + oldProduct.toString());
+			oldProduct = product;
+			productManager.create(oldProduct);	
+			return "redirect:productList";
+		}
+		System.out.println("new: " + product.toString());
+	
 		productManager.create(product);	
 		return "redirect:productList";
 	}

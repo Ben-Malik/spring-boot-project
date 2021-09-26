@@ -60,11 +60,7 @@ public class Category {
 	
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@EqualsAndHashCode.Exclude
-	@ManyToMany(
-     cascade = {
-     CascadeType.MERGE
-     },
-     mappedBy = "categories")
+    @ManyToMany(mappedBy = "categories", fetch = FetchType.EAGER)
 	private Set<Product> products = new HashSet<>();
 	
 	@Column(name = "name")
@@ -80,6 +76,34 @@ public class Category {
 	
 	public Set<Product> getProducts() {
 		return products;
+	}
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = (int) (prime * result + id);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Category other = (Category) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + "]";
 	}
 	
 }

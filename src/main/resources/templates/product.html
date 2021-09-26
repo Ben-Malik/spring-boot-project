@@ -6,7 +6,7 @@
   <div th:replace="adminHome :: navbarAdmin"> </div>
 
   <div class="container page-content">
-    <form action="#" th:action="@{/product/add}" th:object="${product}" method="post">
+    <form th:action="@{/product/add}" th:object="${product}" method="post">
      	<legend th:if="${product.id == null}" class="center-block">
           	New Product Information
         </legend>
