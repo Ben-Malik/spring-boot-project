@@ -74,8 +74,18 @@ public class Product {
 	private Set<Category> categories  = new HashSet<>();
 
 	 @ManyToOne
-	 @JoinColumn(name="brand_id", nullable=true)
+	 @JoinColumn(name = "brand_id")
+	@EqualsAndHashCode.Exclude
 	private Brand brand;
+	 
+	public Brand getBrand() {
+		return brand;
+	}
+
+	public void setBrand(Brand brand) {
+		this.brand = brand;
+	}
+
 	public String getName() {
 		return name;
 	}

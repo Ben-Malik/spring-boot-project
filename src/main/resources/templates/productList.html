@@ -26,7 +26,8 @@
         <td><div style="display:flex;"><span th:each="item : ${product.categories}" 
             th:text="${item.getName()}" class="badge badge-secondary mt-1 mr-1" ></span></div></td>
         <td>
-	       
+	       <div th:if="${product.brand != null}" style="display:flex;"><span 
+            th:text="${product.brand.getName()}" class="badge badge-secondary mt-1 mr-1" ></span></div>
         </td>
  
         <td th:text="${product.price}"></td>

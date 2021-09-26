@@ -3,7 +3,10 @@ package com.bao.baoltd.service;
 import java.util.List;
 import java.util.Optional;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.bao.baoltd.model.Brand;
 import com.bao.baoltd.repository.BrandRepository;
@@ -14,6 +17,8 @@ import com.bao.baoltd.repository.BrandRepository;
  * @author ben-maliktchamalam
  *
  */
+@Service
+@Transactional
 public class BrandManagerImpl implements BrandManager{
 
 	@Autowired
@@ -25,6 +30,7 @@ public class BrandManagerImpl implements BrandManager{
 	}
 
 	@Override
+	@Transactional
 	public Optional<Brand> getById(Long id) {
 		return brandRepository.findById(id);
 	}

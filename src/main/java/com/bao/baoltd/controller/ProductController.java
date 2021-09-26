@@ -2,6 +2,7 @@ package com.bao.baoltd.controller;
 
 import com.bao.baoltd.model.Product;
 import com.bao.baoltd.model.ProductBuilder;
+import com.bao.baoltd.service.BrandManager;
 import com.bao.baoltd.service.CategoryManager;
 import com.bao.baoltd.service.ProductManager;
 
@@ -36,7 +37,8 @@ public class ProductController {
 	@Autowired
 	CategoryManager categoryManager;
 	
-
+	@Autowired
+	BrandManager brandManager;
 	
     @RequestMapping(value = "/products", method = RequestMethod.GET)
     public String getProducts(Model model) {
@@ -47,7 +49,12 @@ public class ProductController {
     @RequestMapping("/productList")
 	public String productList(Model model) {
 		List<Product> products = productManager.getAllProducts();
-		
+		for (Product p: products) {
+			if (p.getBrand() != null) {
+				System.out.println("Product brand: " + p.getBrand().toString());
+			}
+
+		}
 		model.addAttribute("products", products);
 		return "productList";
 	}
@@ -70,6 +77,7 @@ public class ProductController {
 		product.setCategories(new HashSet<>());
 		model.addAttribute("product", product);
 		model.addAttribute("allCategories", categoryManager.getAllCategories());
+		model.addAttribute("allBrands", brandManager.getAllBrands());
 		return "product";
 	}
 	
@@ -98,6 +106,7 @@ public class ProductController {
 		System.out.println(categoryIds);
 		model.addAttribute("currentCat", categoryIds);
 		model.addAttribute("allCategories", categoryManager.getAllCategories());
+		model.addAttribute("allBrands", brandManager.getAllBrands());
 		return "product";
 	}
 	
