@@ -1,9 +1,13 @@
 package com.bao.baoltd.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
@@ -20,6 +24,8 @@ public class Brand {
 	@Column(name = "name")
 	private String name;
 
+    @OneToMany(mappedBy="brand")
+	Set<Product> products = new HashSet<>();
 	public Long getId() {
 		return id;
 	}
