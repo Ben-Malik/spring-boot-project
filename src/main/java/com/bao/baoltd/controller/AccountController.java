@@ -9,21 +9,18 @@ import java.util.Arrays;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bao.baoltd.model.User;
 import com.bao.baoltd.service.ExchangeManager;
 import com.bao.baoltd.service.UserManager;
 import com.bao.baoltd.service.UserSecurityManager;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 
 import utility.GreetingUtility;
 
