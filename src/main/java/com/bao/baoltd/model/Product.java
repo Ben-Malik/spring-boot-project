@@ -73,7 +73,9 @@ public class Product {
     inverseJoinColumns = { @JoinColumn(name = "category_id") })
 	private Set<Category> categories  = new HashSet<>();
 
-	 @ManyToOne(cascade = CascadeType.ALL)
+	 @ManyToOne
+	 @JoinColumn(name = "brand_id")
+	@EqualsAndHashCode.Exclude
 	private Brand brand;
 	 
 	public Brand getBrand() {

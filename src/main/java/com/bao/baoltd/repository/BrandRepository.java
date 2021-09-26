@@ -7,7 +7,6 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 import com.bao.baoltd.model.Brand;
-import com.bao.baoltd.model.Product;
 
 /***
  * 
@@ -15,7 +14,7 @@ import com.bao.baoltd.model.Product;
  *
  */
 @Repository("BrandRepository")
-public interface BrandRepository extends JpaRepository<Brand, Long>, JpaSpecificationExecutor<Product>{
+public interface BrandRepository extends JpaRepository<Brand, Long>, JpaSpecificationExecutor<Brand>{
 	
 	Optional<Brand> findByName(String name);
 
