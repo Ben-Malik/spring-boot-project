@@ -228,9 +228,9 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
 		</createTable>
 	</changeSet>
 	
-	<changeSet id="add-date-time-for-exchange43" author="benmalik">
+	<changeSet id="add-date-time-for-exchange43E3" author="benmalik">
 		<addColumn tableName="exchange">
-		 <column name="created_at" type="DATE">
+		 <column name="created_at" type="DATETIME">
           </column>
 	</addColumn>
 	</changeSet>
