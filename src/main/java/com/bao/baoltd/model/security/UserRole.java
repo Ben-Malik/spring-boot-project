@@ -11,18 +11,15 @@ import javax.persistence.Table;
 
 import com.bao.baoltd.model.User;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 
 @Table(name="user_role")
 @Entity
-@Data
 @AllArgsConstructor
-@NoArgsConstructor
 public class UserRole {
 
+	public UserRole() {}
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long userRoleId;
@@ -42,6 +39,26 @@ public class UserRole {
 
 	public Role getRole() {
 		return role;
+	}
+
+	public Long getUserRoleId() {
+		return userRoleId;
+	}
+
+	public void setUserRoleId(Long userRoleId) {
+		this.userRoleId = userRoleId;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 	
 }

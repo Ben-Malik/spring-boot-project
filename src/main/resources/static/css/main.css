@@ -30,12 +30,20 @@
 	font-weight: 800;
 }
 
-.btn-bao {
-	background-color: rgb(0, 0, 89);
-
+option {
+    padding: 0 24px;
 }
 
-.btn:hover {
+select.form-control {
+    padding: 0 24px;
+}
+ 
+.btn-bao {
+	background-color: rgb(0, 0, 89);
+	color: white;
+}
+
+.btn-bao:hover {
 	color: rgb(0, 0, 89);
 	background-color: white;
 }
