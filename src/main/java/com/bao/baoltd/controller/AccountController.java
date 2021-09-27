@@ -11,6 +11,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.ui.Model;
@@ -54,6 +55,13 @@ public class AccountController {
 		User user = (User) authentication.getPrincipal();
 		model.addAttribute("user", user);
 		return "myProfile";
+	}
+	
+	@RequestMapping("/myAddress")
+	public String myAddress(Model model, Principal principal) {
+		User user = userManager.findByUsername(principal.getName());
+		model.addAttribute("user", user);
+		return "myAddress";
 	}
 	
 	@RequestMapping("/admin")
@@ -106,7 +114,9 @@ public class AccountController {
 		}
 		currentUser.setAddress(address);
 		userManager.save(currentUser);
-		return "redirect:/myAddress";
+		model.addAttribute("user", currentUser);
+		model.addAttribute("addressUpdateSuccess", true);
+		return "myAddress";
 	}
 	
 	@RequestMapping(value="/update-user-info", method=RequestMethod.POST)
@@ -153,12 +163,14 @@ public class AccountController {
 		return "myProfile";
 	}
 	
+	@PreAuthorize("ROLE_ADMIN")
 	@RequestMapping(value = "/admin/add", method = RequestMethod.GET)
 	public String addAdminForm(Model model) {
 		
 		return "admin/add";
 	}
 	
+	@PreAuthorize("ROLE_ADMIN")
 	@RequestMapping(value="/admin/add", method=RequestMethod.POST)
 	public String newAdmin(@Valid @ModelAttribute("user") User user, BindingResult bindingResults,
 							  @ModelAttribute("new-password") String password, 
