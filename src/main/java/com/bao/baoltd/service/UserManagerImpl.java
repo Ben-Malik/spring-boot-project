@@ -1,5 +1,6 @@
 package com.bao.baoltd.service;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
@@ -72,6 +73,16 @@ public class UserManagerImpl implements UserManager{
 			user.setUserRoles(userRoles);
 			return userRepository.save(user);
 		}
+	}
+
+	@Override
+	public List<User> getAllUsers() {
+		List<User> users = new ArrayList<>();
+		userRepository.findAll().forEach(u -> {
+			users.add(u);
+		});
+		
+		return users;
 	}
 
 }

@@ -16,4 +16,5 @@ public interface UserManager {
 	
 	User createUser(String username, String password, String email, List<String> roles);
 
+	List<User> getAllUsers();
 }

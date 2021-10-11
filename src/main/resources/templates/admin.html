@@ -15,7 +15,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="card-box bg-blue">
                     <div class="inner">
-                        <h3> 13436 </h3>
+                        <h3 th:text="${totalProductCount}"> 13436 </h3>
                         <p> Total Products Available </p>
                     </div>
                     <div class="icon">
@@ -28,7 +28,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="card-box bg-red">
                     <div class="inner">
-                        <h3> 13436 </h3>
+                        <h3 th:text="${zeroCountProducts}"> 13436 </h3>
                         <p> Products with no stock </p>
                     </div>
                     <div class="icon">
@@ -40,32 +40,32 @@
 			 <div class="col-lg-3 col-sm-6">
                 <div class="card-box bg-green">
                     <div class="inner">
-                        <h3 th:text="${'₺' + dollar}">₺ 9.9 </h3>
-                        <p>Turkish Lira/USD </p>
+                        <h3 th:text="${'₺' + dollar.getAmount()}">₺ 9.9 </h3>
+                        <p >Turkish Lira/USD </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-usd" aria-hidden="true"></i>
                     </div>
-                    <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                    <a th:text="${dollar.getCreatedAt()}" href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
 
             <div class="col-lg-3 col-sm-6">
                 <div class="card-box bg-green">
                     <div class="inner">
-                        <h3 th:text="${'₺' + euro}">₺ 9.9 </h3>
-                        <p>Turkish Lira/Euro </p>
+                        <h3 th:text="${'₺' + euro.getAmount()}">₺ 9.9 </h3>
+                        <p >Turkish Lira/Euro </p>
                     </div>
                     <div class="icon">
                         <i class="fa fa-eur" aria-hidden="true"></i>
                     </div>
-                    <a href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
+                    <a th:text="${euro.getCreatedAt()}" href="#" class="card-box-footer">View More <i class="fa fa-arrow-circle-right"></i></a>
                 </div>
             </div>
               <div class="col-lg-3 col-sm-6">
                 <div class="card-box bg-green">
                     <div class="inner">
-                        <h3>122 </h3>
+                        <h3>5 </h3>
                         <p>Mostly Sold </p>
                     </div>
                     <div class="icon">
@@ -77,7 +77,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="card-box bg-orange">
                     <div class="inner">
-                        <h3> 5464 </h3>
+                        <h3 th:text="${usersCount}"> 1 </h3>
                         <p> Newly Created Users </p>
                     </div>
                     <div class="icon">
@@ -89,7 +89,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="card-box bg-blue">
                     <div class="inner">
-                        <h3> 723 </h3>
+                        <h3 th:text="${usersCount}"> 4 </h3>
                         <p> Total Users </p>
                     </div>
                     <div class="icon">
@@ -101,7 +101,7 @@
             <div class="col-lg-3 col-sm-6">
                 <div class="card-box bg-red">
                     <div class="inner">
-                        <h3> 723 </h3>
+                        <h3> 0 </h3>
                         <p> Awaiting Orders </p>
                     </div>
                     <div class="icon">

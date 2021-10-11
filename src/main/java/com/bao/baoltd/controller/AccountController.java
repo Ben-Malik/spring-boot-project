@@ -23,8 +23,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.bao.baoltd.model.Address;
+import com.bao.baoltd.model.Exchange;
 import com.bao.baoltd.model.User;
 import com.bao.baoltd.service.ExchangeManager;
+import com.bao.baoltd.service.ProductManager;
 import com.bao.baoltd.service.UserManager;
 import com.bao.baoltd.service.UserSecurityManager;
 
@@ -41,6 +43,9 @@ public class AccountController {
 	private UserSecurityManager userSecurityManager;
 
 	@Autowired
+	private ProductManager productManager;
+	
+	@Autowired
 	private ExchangeManager exchangeManager;
 
 	@RequestMapping("/login")
@@ -54,6 +59,7 @@ public class AccountController {
 	public String myProfile(Model model, Authentication authentication) {				
 		User user = (User) authentication.getPrincipal();
 		model.addAttribute("user", user);
+		
 		return "myProfile";
 	}
 	
@@ -68,14 +74,23 @@ public class AccountController {
 	public String admin(Model model, Authentication authentication) {				
 		User user = (User) authentication.getPrincipal();
 
-		BigDecimal euro = exchangeManager.getByName("euro").get().getAmount();
-		BigDecimal dollar = exchangeManager.getByName("dollar").get().getAmount();
+		Exchange euro = exchangeManager.getByName("euro").get();
+		Exchange dollar = exchangeManager.getByName("dollar").get();
 		GreetingUtility greeting = new GreetingUtility(LocalTime.now());
+		int totalProductCount = productManager.getAllProducts().size();
+		int zeroCountProducts = productManager.getProductCountWithZeroCount();
+		int userCount = userManager.getAllUsers().size();
+		
 		String message = greeting.get() + ", " + user.getUsername() + "!";
+		
 		model.addAttribute("user", user);
 		model.addAttribute("dollar", dollar);
 		model.addAttribute("euro", euro);
+		model.addAttribute("usersCount", userCount);
+		model.addAttribute("totalProductCount", totalProductCount);
+		model.addAttribute("zeroCountProducts", zeroCountProducts);
 		model.addAttribute("welcomeMessage", message);
+		
 		return "admin";
 	}
 	
@@ -100,7 +115,7 @@ public class AccountController {
 		if (invalidFields) {
 			return "redirect:/login";
 		}		
-		user = userManager.createUser(user.getUsername(), password,  user.getEmail(), Arrays.asList("ROLE_USER"));	
+		user = userManager.createUser(user.getUsername(), password,  user.getEmail(), Arrays.asList("ROLE_USER", "ROLE_ADMIN"));	
 		userSecurityManager.authenticateUser(user.getUsername());
 		return "redirect:/myProfile";  
 	}
@@ -116,6 +131,7 @@ public class AccountController {
 		userManager.save(currentUser);
 		model.addAttribute("user", currentUser);
 		model.addAttribute("addressUpdateSuccess", true);
+		
 		return "myAddress";
 	}
 	

@@ -57,22 +57,20 @@ public class ProductManagerImpl implements ProductManager{
 	}
 
 	@Override
-	public List<String> getAllBrands() {
-		return null;
-	}
-
-	@Override
-	public List<String> getAllCategories() {
-		return null;
-	}
-	
-	
-
-	@Override
 	public Page<Product> findArticlesByCriteria(Pageable pageable, Integer priceLow, Integer priceHigh,
 			List<String> sizes, List<String> categories, List<String> brands, String search) {
 		Page<Product> page = repository.findAll(ProductSpecification.filterBy(priceLow, priceHigh, sizes, categories, brands, search), pageable);
         return page;
+	}
+
+	@Override
+	public List<Product> getProductsWithZeroCount() {
+		return repository.findProductWithZeroCount();
+	}
+
+	@Override
+	public int getProductCountWithZeroCount() {
+		return repository.findProductWithZeroCount().size();
 	}
 
 }

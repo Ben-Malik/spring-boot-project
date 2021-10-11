@@ -38,7 +38,7 @@ public class ExchangeUtility {
 		String euro = jsonEURO.getBody().split(":")[1].split("}")[0];
 		String dollar = jsonDOLAR.getBody().split(":")[1].split("}")[0];
 
-		System.out.println(euro + " " + dollar);
+		System.out.println("Euro: " + euro + " Dollar: " + dollar + " Time: " + new Date().toString());
 
 		Exchange usd = manager.getByName("dollar").isPresent()? manager.getByName("dollar").get() : null;
 		Exchange eur = manager.getByName("euro").isPresent() ? manager.getByName("euro").get() : null;
