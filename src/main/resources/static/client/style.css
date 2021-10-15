@@ -338,7 +338,7 @@ a.links,
 a.links-2, 
 a.review-links {
 	background: #0E0344 none repeat scroll 0 0;
-	color: #242424;
+	color: white;
 	display: inline-block;
 	font-family: Montserrat;
 	font-size: 14px;
@@ -1458,7 +1458,7 @@ textarea:focus {
 	margin: 0;
 	border: 0;
 	padding: 0 28px 0 25px;
-	color: white;
+	color: #242424;
 	font-size: 13px;
 	border-radius: 15px 0 0 15px;
 	font-family: 'Rubik',sans-serif;
@@ -3013,6 +3013,7 @@ text-align: center;
 /*Header Bottom*/
 .hb-info {
 	line-height: 50px;
+	color: white;
 }
 /*Category Menu*/
 .category-menu {
@@ -5401,6 +5402,10 @@ span.required {
   padding-left: 20px;
   padding-right: 55px;
   width: 100%;
+}
+
+.fa-search {
+	color: white;
 }
 #search-form button {
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
