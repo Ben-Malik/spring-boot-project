@@ -84,7 +84,7 @@
 					<span th:if="${#fields.hasErrors('count')}" th:errors="*{count}"></span>
 				</div>
 				<div class="col-sm-3">
-					<select th:field="*{state}" class="selectpicker form-control" title="Select product State">
+					<select th:required="required" th:field="*{state}" class="selectpicker form-control" title="Select product state">
 						<option th:each="st: ${T(com.bao.baoltd.enums.State).values()}" th:value="${st.name()}" th:text="${st.name()}">
 						</option>
 					</select>

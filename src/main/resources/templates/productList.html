@@ -16,6 +16,7 @@
         <th>Price</th>
         <th>Stock</th>
         <th>Box Code </th>
+        <th>State </th>
         <th>Operation</th>
       </tr>
     </thead>
@@ -33,9 +34,8 @@
         <td th:text="${'$ ' + product.price}"></td>
         <td th:text="${product.count}"></td>
         <td th:text="${product.boxCode}"></td>
+        <td th:text="${product.state}"></td>
         <td><a th:href="@{'/product/edit/' + ${product.id}}" class="badge badge-primary">EDIT</a>  
-
-            <a th:href="@{'/product/delete/' + ${product.id}}" class="badge badge-danger">DELETE </a> </td>
       </tr>
     </tbody>
   </table>
