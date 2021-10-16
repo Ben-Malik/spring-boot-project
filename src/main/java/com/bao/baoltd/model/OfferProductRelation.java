@@ -10,10 +10,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
-@Setter
-@Getter
-@ToString
+//@Entity
+//@Setter
+//@Getter
+//@ToString
 public class OfferProductRelation {
 
 	@GeneratedValue

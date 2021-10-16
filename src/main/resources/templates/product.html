@@ -61,7 +61,7 @@
 				<label for="name" class="col-sm-2 col-form-label">Branding</label>
 				<div class="col-sm-3">
 
-					<select th:field="*{categories}" class="selectpicker form-contro" data-live-search=true data-actions-box="true"
+					<select th:field="*{categories}" class="selectpicker form-control" data-live-search=true data-actions-box="true"
 						data-selected-text-format="count > 2" multiple title="Select Categories"
 						data-header="Select categories">
 						<option th:each="cat : ${allCategories}" th:value="${cat.id}" th:text="${cat.name}">Part name
@@ -82,6 +82,12 @@
 					</select>
 
 					<span th:if="${#fields.hasErrors('count')}" th:errors="*{count}"></span>
+				</div>
+				<div class="col-sm-3">
+					<select th:field="*{state}" class="selectpicker form-control" title="Select product State">
+						<option th:each="st: ${T(com.bao.baoltd.enums.State).values()}" th:value="${st.name()}" th:text="${st.name()}">
+						</option>
+					</select>
 				</div>
 			</div>
 			<div class="form-group row">

@@ -8,7 +8,6 @@ import lombok.Setter;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -21,11 +20,12 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
+
+import com.bao.baoltd.enums.State;
 
 @NamedEntityGraph(
 		name= "ProductComplete",
@@ -63,6 +63,9 @@ public class Product {
     
     @Column(name = "picture")
 	private String picture;
+    
+    @Column(name = "state", nullable = true)
+    private State state;
   
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@EqualsAndHashCode.Exclude
@@ -156,6 +159,22 @@ public class Product {
 	}
 
 	
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
 	public Set<Category> getCategories() {
 		return categories;
 	}

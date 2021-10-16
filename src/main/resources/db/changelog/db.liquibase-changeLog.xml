@@ -216,6 +216,12 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
             </column>
 		</createTable>
 	</changeSet>
+	
+	<changeSet id="add-state-to-the-product" author="benmalik">
+		<addColumn tableName="product">
+			<column name="state" type="INT"></column>
+		</addColumn>
+	</changeSet>
 	<!-- 
 	<changeSet id="121344434-34443" author="benmalik">
 		<createTable tableName="product">
