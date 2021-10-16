@@ -1140,7 +1140,7 @@ textarea:focus {
   border: 2px solid #333333;
 }
 .product-variants .produt-variants-color .color-list li a.orange-color {
-  background: #f39c11;
+  background: #0E0344;
 }
 .product-variants .produt-variants-color .color-list li a.orange-color.active {
   border: 2px solid #333333;
@@ -1934,7 +1934,7 @@ textarea:focus {
 }
 /*Sticky*/
 .header-sticky.sticky {
-	background: rgba(254,215,0,.8);
+	background: #0E0344;
 	left: 0;
 	position: fixed;
 	right: 0;
@@ -3062,8 +3062,7 @@ text-align: center;
 	font-family: fontawesome;
 }
 .category-heading > h2 > i {
-	float: ;
-	text-align: ;
+	
 	float: right;
 	padding-right: 20px;
 	font-size: 12px;
