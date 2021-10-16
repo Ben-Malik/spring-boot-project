@@ -1,5 +1,10 @@
 package com.bao.baoltd.enums;
 
+/**
+ * An enumeration indicating the state of a particular object.
+ * @author ben-maliktchamalam
+ *
+ */
 public enum State {
 
 	ACTIVE(0),
