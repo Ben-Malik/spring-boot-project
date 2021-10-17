@@ -57,10 +57,7 @@ public class ProductController {
 		}
 		model.addAttribute("products", products);
 		return "productList";
-	}
-	
-    
-    
+	}  
     
     @RequestMapping(value = "/addProduct", method = { RequestMethod.GET})
     public String addUser(@ModelAttribute Product product, BindingResult result, Model model) {

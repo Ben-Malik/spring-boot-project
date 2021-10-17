@@ -36,7 +36,7 @@ import com.bao.baoltd.enums.State;
 @Getter
 @Entity
 @AllArgsConstructor
-public class Product {
+	public class Product {
 
 	@Column(name="id")
     @Id
@@ -66,18 +66,17 @@ public class Product {
     
     @Column(name = "state", nullable = true)
     private State state;
-  
+    
 	@LazyCollection(LazyCollectionOption.FALSE)
 	@EqualsAndHashCode.Exclude
-			  @ManyToMany(fetch = FetchType.EAGER)
-
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "product_category",
     joinColumns = { @JoinColumn(name = "product_id") },
     inverseJoinColumns = { @JoinColumn(name = "category_id") })
 	private Set<Category> categories  = new HashSet<>();
 
-	 @ManyToOne(fetch = FetchType.EAGER)
-	 @JoinColumn(name = "brand_id")
+	@ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "brand_id")
 	@EqualsAndHashCode.Exclude
 	private Brand brand;
 	 
@@ -187,7 +186,6 @@ public class Product {
 		return result;
 	}
 
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -201,9 +199,11 @@ public class Product {
 			return false;
 		return true;
 	}
+	
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", name=" + name + ", code=" + code + ", price=" + price + ", description="
 				+ description + ", count=" + count + ", boxCode=" + boxCode + ", picture=" + picture + "]";
 	}
+	
 }

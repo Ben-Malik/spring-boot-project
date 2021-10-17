@@ -1,6 +1,9 @@
 package com.bao.baoltd.service;
 
+import java.io.IOException;
 import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.bao.baoltd.model.FileEntity;
 
@@ -40,5 +43,12 @@ public interface FileManager {
 	 * @return The newly saved file entity.
 	 */
 	FileEntity create(FileEntity fileEntity);
+	
+	/**
+	 * Saves a given multipartFile file to 
+	 * @param file The file to be saved.
+	 * @return An entity of file the saved.
+	 */
+	FileEntity store(MultipartFile file) throws IOException;
 
 }
