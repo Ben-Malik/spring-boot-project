@@ -3,6 +3,8 @@ package com.bao.baoltd.model;
 import java.util.Objects;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -16,6 +18,8 @@ import lombok.ToString;
 @AllArgsConstructor
 public class ProductDetail {
 	
+	@Id
+	@GeneratedValue
 	private Long id;
 	
 	private int rate;
