@@ -33,6 +33,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 			"/images/**",
 			"/client/**",
 			"/",
+			"/view",
 			"/newUser",
 			"/login",
 			"/store",
