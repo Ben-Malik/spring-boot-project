@@ -37,6 +37,9 @@ public class ProductDetail {
 	}
 
 	public void setRate(int rate) {
+		if (rate > 5 || rate < 0) {
+			throw new IllegalArgumentException("Rate cannot be larger than 5 or less than 0");
+		}
 		this.rate = rate;
 	}
 
