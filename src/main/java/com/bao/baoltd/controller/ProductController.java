@@ -77,6 +77,12 @@ public class ProductController {
 		model.addAttribute("allBrands", brandManager.getAllBrands());
 		return "product";
 	}
+    
+    @RequestMapping(value = "/view/", method = RequestMethod.GET)
+    public String viewClientProduct(Model model) {
+    	
+    	return "fragments/productForm";
+    }
 	
 	@RequestMapping(value="/add", method=RequestMethod.POST)
 	public String addProductPost(@Validated @ModelAttribute("product") Product product, HttpServletRequest request) {
