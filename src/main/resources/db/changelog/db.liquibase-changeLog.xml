@@ -222,6 +222,19 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
 			<column name="state" type="INT"></column>
 		</addColumn>
 	</changeSet>
+	<changeSet id="create-FileEntityTable" author="benmalik">
+		<createTable tableName="fileEntity">
+			<column autoIncrement="true" name="id" type="BIGINT">
+				<constraints primaryKey="true" primaryKeyName="fileEntity-PK"/>
+			</column>
+			<column name="name" type="VARCHAR(255)">
+				<constraints unique="true"/>
+			</column>
+			<column name="size" type="BIGINT"></column>
+			<column name="type" type="varchar(255)"></column>
+			<column name="content" type="nvarchar(64)"></column>
+		</createTable>
+	</changeSet>
 	<!-- 
 	<changeSet id="121344434-34443" author="benmalik">
 		<createTable tableName="product">
