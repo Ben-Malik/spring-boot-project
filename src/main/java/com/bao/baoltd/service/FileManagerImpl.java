@@ -2,7 +2,12 @@ package com.bao.baoltd.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.bao.baoltd.model.FileEntity;
+import com.bao.baoltd.repository.FileRepository;
 
 /**
  * An implementation of the {@link FileManager} interface.
@@ -10,31 +15,32 @@ import com.bao.baoltd.model.FileEntity;
  * @author ben-maliktchamalam
  *
  */
+@Service
+@Transactional(readOnly = true)
 public class FileManagerImpl implements FileManager {
 
+	@Autowired
+	private FileRepository fileRepository;
+	
 	@Override
 	public List<FileEntity> getAllFiles() {
-		// TODO Auto-generated method stub
-		return null;
+		return fileRepository.findAll();
 	}
 
 	@Override
 	public FileEntity getById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return fileRepository.getById(id);
 	}
 
 	@Override
 	public FileEntity getByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+		return fileRepository.findByName(name);
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public FileEntity create(FileEntity fileEntity) {
-		// TODO Auto-generated method stub
-		return null;
+		return fileRepository.save(fileEntity);
 	}
-	
 
 }
