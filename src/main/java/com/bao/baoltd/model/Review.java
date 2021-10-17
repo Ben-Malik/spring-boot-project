@@ -17,11 +17,11 @@ import lombok.ToString;
  * @author ben-maliktchamalam
  *
  */
-@Entity
-@Table(name = "review")
-@ToString
-@AllArgsConstructor
-@NoArgsConstructor
+//@Entity
+//@Table(name = "review")
+//@ToString
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class Review {
 	
 	@Id

@@ -13,11 +13,11 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-@Table(name = "product_detail")
-@Entity
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
+//@Table(name = "product_detail")
+//@Entity
+//@ToString
+//@NoArgsConstructor
+//@AllArgsConstructor
 public class ProductDetail {
 	
 	@Id
