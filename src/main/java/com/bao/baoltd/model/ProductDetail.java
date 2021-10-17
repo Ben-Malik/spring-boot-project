@@ -46,7 +46,6 @@ public class ProductDetail {
 		}
 		this.rate = rate;
 	}
-	
 
 	public Set<Review> getReviews() {
 		return reviews;
