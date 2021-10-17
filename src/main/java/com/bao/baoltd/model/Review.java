@@ -33,6 +33,8 @@ public class Review {
 	private String message;
 	
 	private boolean recommended;
+	
+	private User creator;
 
 	public Long getId() {
 		return id;
@@ -64,6 +66,14 @@ public class Review {
 
 	public void setRecommended(boolean recommended) {
 		this.recommended = recommended;
+	}
+
+	public User getCreator() {
+		return creator;
+	}
+
+	public void setCreator(User creator) {
+		this.creator = creator;
 	}
 
 	@Override

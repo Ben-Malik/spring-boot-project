@@ -1,6 +1,8 @@
 package com.bao.baoltd.model;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,6 +26,8 @@ public class ProductDetail {
 	
 	private int rate;
 
+	Set<Review> reviews = new HashSet<>();
+	
 	public Long getId() {
 		return id;
 	}
@@ -41,6 +45,15 @@ public class ProductDetail {
 			throw new IllegalArgumentException("Rate cannot be larger than 5 or less than 0");
 		}
 		this.rate = rate;
+	}
+	
+
+	public Set<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setReviews(Set<Review> reviews) {
+		this.reviews = reviews;
 	}
 
 	@Override
