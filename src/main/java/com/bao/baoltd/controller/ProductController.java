@@ -27,7 +27,6 @@ import java.util.stream.Collectors;
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-@RequestMapping("/product")
 public class ProductController {
 
 
@@ -40,13 +39,13 @@ public class ProductController {
 	@Autowired
 	BrandManager brandManager;
 	
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
+    @RequestMapping(value = "/product/products", method = RequestMethod.GET)
     public String getProducts(Model model) {
     	model.addAttribute("products", productManager.getAllProducts());
         return "product";
     }
     
-    @RequestMapping("/productList")
+    @RequestMapping("/product/productList")
 	public String productList(Model model) {
 		List<Product> products = productManager.getAllProducts();
 		for (Product p: products) {
@@ -59,7 +58,7 @@ public class ProductController {
 		return "productList";
 	}  
     
-    @RequestMapping(value = "/addProduct", method = { RequestMethod.GET})
+    @RequestMapping(value = "/product/addProduct", method = { RequestMethod.GET})
     public String addUser(@ModelAttribute Product product, BindingResult result, Model model) {
         model.addAttribute("product", new Product());
         
@@ -67,7 +66,7 @@ public class ProductController {
     }
     
     
-    @RequestMapping("/add")
+    @RequestMapping("/product/add")
 	public String addProductGet(Model model) {
 
 		Product product = new Product();
@@ -78,13 +77,13 @@ public class ProductController {
 		return "product";
 	}
     
-    @RequestMapping(value = "/view/", method = RequestMethod.GET)
+    @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String viewClientProduct(Model model) {
     	
     	return "fragments/productForm";
     }
 	
-	@RequestMapping(value="/add", method=RequestMethod.POST)
+	@RequestMapping(value="/product/add", method=RequestMethod.POST)
 	public String addProductPost(@Validated @ModelAttribute("product") Product product, HttpServletRequest request) {
 
 		if (product.getId() != null) {
@@ -100,7 +99,7 @@ public class ProductController {
 		return "redirect:productList";
 	}
 	
-	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/product/edit/{id}", method = RequestMethod.GET)
 	public String showEditProduct( @PathVariable("id") Long id, Model model) {
 		
 		Product product = productManager.getById(id).get();
@@ -113,7 +112,7 @@ public class ProductController {
 		return "product";
 	}
 	
-	@RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/product/delete/{id}", method = RequestMethod.GET)
 	public String deleteProduct(@PathVariable("id") Long id, Model model) {
 		productManager.deleteById(id);
 		
