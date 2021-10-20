@@ -14,7 +14,12 @@ import com.bao.baoltd.service.UserSecurityManager;
 
 import utility.SecurityUtility;
 
-
+/**
+ * A Security configuration class to handle what page can be accessed by which type user.
+ * 
+ * @author ben-maliktchamalam
+ *
+ */
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled=true)
@@ -65,4 +70,5 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(userSecurityManager).passwordEncoder(passwordEncoder());
 	}
+	
 }
