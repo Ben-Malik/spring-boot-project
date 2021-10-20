@@ -10,6 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.bao.baoltd.model.Product;
 import com.bao.baoltd.service.ProductManager;
 
+/**
+ * The controller having the endpoints accessible by all clients and users.
+ * @author ben-maliktchamalam
+ *
+ */
 @Controller
 public class HomeController {
 
