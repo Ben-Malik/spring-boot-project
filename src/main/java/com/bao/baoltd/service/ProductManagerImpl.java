@@ -73,4 +73,9 @@ public class ProductManagerImpl implements ProductManager{
 		return repository.findProductWithZeroCount().size();
 	}
 
+	@Override
+	public List<Product> getNewArrivals() {
+		return getAllProducts();
+	}
+
 }

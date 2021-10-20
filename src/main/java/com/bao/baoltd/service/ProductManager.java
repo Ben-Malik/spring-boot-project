@@ -56,6 +56,11 @@ public interface ProductManager {
 	int getProductCountWithZeroCount();
 	
 	/**
+	 * Grabs products newly added.
+	 * @return a list of products newly added to the database.
+	 */
+	List<Product> getNewArrivals();
+	/**
 	 * 
 	 * @param pageable
 	 * @param priceLow

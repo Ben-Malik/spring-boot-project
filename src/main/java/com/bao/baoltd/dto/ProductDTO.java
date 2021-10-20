@@ -15,6 +15,8 @@ import lombok.ToString;
 @NoArgsConstructor
 public class ProductDTO {
 
+	private Long id;
+	
 	private String image;
 	
 	private int rate;
@@ -24,6 +26,14 @@ public class ProductDTO {
 	private double price;
 	
 	private boolean isNew;
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public String getImage() {
 		return image;
