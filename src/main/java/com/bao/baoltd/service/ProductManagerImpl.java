@@ -1,6 +1,7 @@
 package com.bao.baoltd.service;
 
 
+import com.bao.baoltd.dto.ProductDTO;
 import com.bao.baoltd.model.Product;
 import com.bao.baoltd.repository.ProductRepository;
 import com.bao.baoltd.repository.ProductSpecification;
@@ -18,6 +19,12 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+/**
+ * An implementation of the {@link ProductManager} interface.
+ * 
+ * @author ben-maliktchamalam
+ *
+ */
 @Service
 @Transactional
 public class ProductManagerImpl implements ProductManager{
@@ -76,6 +83,12 @@ public class ProductManagerImpl implements ProductManager{
 	@Override
 	public List<Product> getNewArrivals() {
 		return getAllProducts();
+	}
+
+	@Override
+	public List<ProductDTO> getNewArivalDTOs() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -1,5 +1,6 @@
 package com.bao.baoltd.service;
 
+import com.bao.baoltd.dto.ProductDTO;
 import com.bao.baoltd.model.Product;
 
 import java.util.List;
@@ -60,6 +61,13 @@ public interface ProductManager {
 	 * @return a list of products newly added to the database.
 	 */
 	List<Product> getNewArrivals();
+	
+	/**
+	 * Finds all products newly added and returns them as dto objects.
+	 * @return a list of {@link ProductDTO}
+	 */
+	
+	List<ProductDTO> getNewArivalDTOs();
 	/**
 	 * 
 	 * @param pageable

@@ -34,9 +34,6 @@ public class HomeController {
 		for (Product p: newArrivals) {
 			ProductDTO dto = new ProductDTO();
 			dto.setId(p.getId());
-			dto.setImage(p.getPicture());
-			dto.setImage(p.getName());
-			dto.setNew(true);
 			dto.setPrice(p.getPrice());
 			productDTOs.add(dto);
 		}
