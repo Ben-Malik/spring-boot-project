@@ -16,39 +16,19 @@ import lombok.ToString;
 public class ProductDTO {
 
 	private Long id;
-	
-	private String image;
-	
-	private int rate;
-	
+			
 	private String name;
 	
 	private double price;
+		
+	private String code;
 	
-	private boolean isNew;
+	private String boxCode;
+	
+	private Long stock;
 	
 	public Long getId() {
 		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getImage() {
-		return image;
-	}
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
-	public int getRate() {
-		return rate;
-	}
-
-	public void setRate(int rate) {
-		this.rate = rate;
 	}
 
 	public String getName() {
@@ -67,12 +47,32 @@ public class ProductDTO {
 		this.price = price;
 	}
 
-	public boolean isNew() {
-		return isNew;
+	public String getCode() {
+		return code;
 	}
 
-	public void setNew(boolean isNew) {
-		this.isNew = isNew;
+	public void setCode(String code) {
+		this.code = code;
 	}
-	
+
+	public String getBoxCode() {
+		return boxCode;
+	}
+
+	public void setBoxCode(String boxCode) {
+		this.boxCode = boxCode;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getStock() {
+		return stock;
+	}
+
+	public void setStock(Long stock) {
+		this.stock = stock;
+	}
+
 }
