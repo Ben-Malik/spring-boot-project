@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -87,8 +88,17 @@ public class ProductManagerImpl implements ProductManager{
 
 	@Override
 	public List<ProductDTO> getNewArivalDTOs() {
-		// TODO Auto-generated method stub
-		return null;
+		List<ProductDTO> output = new ArrayList<>();
+		List<Product> allProducts = getAllProducts();
+		for (Product p: allProducts) {
+			ProductDTO dto = new ProductDTO();
+			dto.setBoxCode(p.getBoxCode());
+			dto.setCode(p.getCode());
+			dto.setStock(Long.valueOf(p.getCount()));
+			dto.setName(p.getName());
+			output.add(dto);
+		}
+		return output;
 	}
 
 }
