@@ -28,15 +28,9 @@ public class HomeController {
 	@RequestMapping("/")
 	public String index(Model model) {		
 		
-		List<Product> newArrivals = productManager.getNewArrivals();
-		List<ProductDTO> productDTOs = new ArrayList<>();
+		List<ProductDTO> productDTOs = productManager.getNewArivalDTOs();
 		
-		for (Product p: newArrivals) {
-			ProductDTO dto = new ProductDTO();
-			dto.setId(p.getId());
-			dto.setPrice(p.getPrice());
-			productDTOs.add(dto);
-		}
+		
 		model.addAttribute("productDTOs", productDTOs);
 		return "index";
 	}
