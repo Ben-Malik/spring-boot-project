@@ -45,6 +45,12 @@ public class ProductController {
         return "product";
     }
     
+    @RequestMapping(value = "/product/import", method = RequestMethod.GET) 
+    public String importProducts(Model model) {
+    	
+    	return "importProduct";
+    }
+    
     @RequestMapping("/product/productList")
 	public String productList(Model model) {
 		List<Product> products = productManager.getAllProducts();
