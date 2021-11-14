@@ -101,4 +101,10 @@ public class ProductManagerImpl implements ProductManager{
 		return output;
 	}
 
+	@Override
+	public List<Product> importProducts() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

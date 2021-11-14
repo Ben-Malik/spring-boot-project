@@ -67,6 +67,12 @@ public interface ProductManager {
 	 * @return a list of {@link ProductDTO}
 	 */
 	
+	/**
+	 * 
+	 * @return
+	 */
+	List<Product> importProducts();
+	
 	List<ProductDTO> getNewArivalDTOs();
 	/**
 	 * 
