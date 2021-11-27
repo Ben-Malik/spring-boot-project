@@ -1,7 +1,6 @@
 package com.bao.baoltd.controller;
 
 import com.bao.baoltd.model.Product;
-import com.bao.baoltd.model.ProductBuilder;
 import com.bao.baoltd.service.BrandManager;
 import com.bao.baoltd.service.CategoryManager;
 import com.bao.baoltd.service.ProductManager;
@@ -16,12 +15,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.beans.PropertyEditorSupport;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import javax.servlet.http.HttpServletRequest;

@@ -1,6 +1,5 @@
 package com.bao.baoltd.controller;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +8,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.bao.baoltd.dto.ProductDTO;
-import com.bao.baoltd.model.Product;
 import com.bao.baoltd.service.ProductManager;
 
 /**
