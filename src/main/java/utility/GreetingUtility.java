@@ -2,6 +2,10 @@ package utility;
 
 import java.time.LocalTime;
 
+/**
+ * The Greeting component
+ * @author ben-malik
+ */
 public class GreetingUtility {
 
 	private static final LocalTime MORNING = LocalTime.of(0, 0, 0);

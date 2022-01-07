@@ -17,6 +17,10 @@ import org.springframework.web.client.RestTemplate;
 import com.bao.baoltd.model.Exchange;
 import com.bao.baoltd.service.ExchangeManager;
 
+/**
+ * A helper component to handle the exchange rate on the website.
+ * @author ben-malik
+ */
 @EnableScheduling
 @Configuration
 @Component
