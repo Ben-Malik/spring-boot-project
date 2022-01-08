@@ -1,7 +1,1 @@
-# Baoteknoloji | Online Shopping Center
-
-## Note
-# 1. Importing products from xml
-	
-## Colunns
-   code, name, price
+# Notlarim | A note tacking and tracking platform using Java Spring Boot & Thumeleaf.
