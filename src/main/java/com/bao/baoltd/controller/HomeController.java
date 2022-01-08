@@ -19,17 +19,10 @@ import com.bao.baoltd.service.ProductManager;
 public class HomeController {
 
 	
-	@Autowired
-	private ProductManager productManager;
 	
 	
 	@RequestMapping("/")
 	public String index(Model model) {		
-		
-		List<ProductDTO> productDTOs = productManager.getNewArivalDTOs();
-		
-		
-		model.addAttribute("productDTOs", productDTOs);
 		return "index";
 	}
 	
