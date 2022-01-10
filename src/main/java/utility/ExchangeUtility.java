@@ -14,8 +14,8 @@ import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import com.bao.baoltd.model.Exchange;
-import com.bao.baoltd.service.ExchangeManager;
+import com.notlarim.notlarimltd.model.Exchange;
+import com.notlarim.notlarimltd.service.ExchangeManager;
 
 /**
  * A helper component to handle the exchange rate on the website.

@@ -11,9 +11,9 @@
 	</parent>
 
 	<groupId>com.bao</groupId>
-	<artifactId>bao-ltd</artifactId>
+	<artifactId>notlarim-ltd</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>bao-ltd</name>
+	<name>notlarim-ltd</name>
 	<description>bao-ltd</description>
 	<properties>
 		<java.version>11</java.version>
