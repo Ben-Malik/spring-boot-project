@@ -3,7 +3,12 @@
 http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
 http://www.liquibase.org/xml/ns/pro 
 http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
-    <changeSet author="ben-malik" id="create-necessary-main-tables">
+   
+
+
+    <!-- Working -->
+
+    <changeSet author="ben-malik" id="create-necessary-main-table2s-">
         <!-- <createTable tableName="user">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" />
@@ -12,9 +17,6 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
             <column name="username" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
             <column name="surname" type="varchar(255)">
                 <constraints nullable="false" />
             </column>
@@ -24,291 +26,21 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
             <column name="address_id" type="BIGINT">
                 <constraints nullable="false" foreignKeyName="fk_user_address" references="address(id)" />
             </column>
-        </createTable>
-        <createTable tableName="address">
-            <column autoIncrement="true" name="id" type="BIGINT">
+        </createTable> -->
+        <!-- <createTable tableName="address"> -->
+            <!-- <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" />
             </column>
             <column name="street_address" type="varchar(255)" />
             <column name="city" type="varchar(255)"></column>
             <column name="country" type="varchar(255)"></column>
-            <column name="zip_code" type="varchar(255)"></column>
-        </createTable>
-        <createTable tableName="user_role">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" />
-            </column>
-            <column name="role_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_role_user_role" references="role(id)" />
-            </column>
-            <column name="user_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_user_user_role" references="app_user(id)" />
-            </column>
-        </createTable>
-        <createTable tableName="role">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" />
-            </column>
-            <column name="name" type="varchar(255)" />
-
-            <column name="user_role_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_role_user_role" references="user_role(id)" />
-            </column>
-        </createTable> -->
-        <!-- <createTable tableName="PRODUCT">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" />
-            </column>
-            <column name="NAME" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="CODE" type="varchar(5)">
-                <constraints nullable="false" />
-            </column>
-            <column name="DESCRIPTION" type="varchar(255)" />
-
-            <column name="PRICE" type="FLOAT">
-                <constraints nullable="false" />
-            </column>
-        </createTable> -->
-    </changeSet>
-    <!-- <changeSet author="ben-malik" id="addColumn-for-count">
-        <addColumn tableName="PRODUCT">
-            <column name="COUNT" type="INTEGER">
-                <constraints nullable="false" />
-            </column>
-
-        </addColumn>
-
-    </changeSet> -->
-    <changeSet id="add-box-code" author="ben-malik">
-        <!-- <addColumn tableName="PRODUCT">
-            <column name="BOX_CODE" type="VARCHAR(10)">
-                <constraints nullable="true" />
-            </column>
-
-        </addColumn> -->
-        <!-- <addColumn tableName="user">
-            <column name="address_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_user_address" references="address(id)" />
-            </column>
-        </addColumn>
-        <renameColumn columnDataType="varchar(255)" newColumnName="firstname" oldColumnName="name" remarks="A String" schemaName="public" tableName="user" /> -->
-
+            <column name="zip_code" type="varchar(255)"></column> -->
+        <!-- </createTable> -->
         <!-- <createTable tableName="user_role">
             <column autoIncrement="true" name="id" type="BIGINT">
                 <constraints primaryKey="true" />
             </column>
             <column name="role_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_role_user_role" references="role(role_id)" />
-            </column>
-            <column name="user_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_user_user_role" references="user(id)" />
-            </column>
-        </createTable> -->
-    </changeSet>
-
-    <!-- <changeSet id="create-category-table" author="ben-malik">
-        <createTable tableName="category">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="categoryPK" />
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-        </createTable>
-
-    </changeSet>
- -->
-
-    <!-- <changeSet id="create-product-category-relationship-table" author="ben-malik">
-        <createTable tableName="product_category">
-            <column name="product_id" type="BIGINT">
-                <constraints nullable="false" />
-            </column>
-            <column name="category_id" type="BIGINT">
-                <constraints nullable="false" />
-            </column>
-        </createTable>
-    </changeSet>
-    <changeSet author="ben-malik" id="add-primary-key-to-product-category-table">
-        <addPrimaryKey columnNames="product_id, category_id" tableName="product_category" />
-    </changeSet>
-    <changeSet author="ben-malik" id="add-constraint-into-product-category-table">
-        <addForeignKeyConstraint baseColumnNames="product_id" baseTableName="product_category" constraintName="FK_apcc8lxk2xnug8377fatvbn04" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="product" />
-    </changeSet>
-    <changeSet author="benmalik" id="15503e740413343906-9">
-        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="product_category" constraintName="FK_it77eq964jhfqtu54081ebtio" deferrable="false" initiallyDeferred="false" referencedColumnNames="id" referencedTableName="category" />
-    </changeSet> -->
-
-
-    <!-- <changeSet author="liquibase-docs" id="addUniqueConstraint-example">
-        <addUniqueConstraint columnNames="name" constraintName="const_name" initiallyDeferred="true" schemaName="public" tableName="product" />
-    </changeSet> -->
-
-    
-
-    <!-- <changeSet id="create-brand-table" author="benmalik">
-        <createTable tableName="brand">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="brand-PK" />
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="product_id" type="BIGINT">
-                <constraints foreignKeyName="product_brand_FK" references="product(id)" />
-            </column>
-        </createTable>
-    </changeSet>
-
-    <changeSet id="add-state-to-the-product" author="benmalik">
-        <addColumn tableName="product">
-            <column name="state" type="INT"></column>
-        </addColumn>
-    </changeSet>
-    <changeSet id="create-FileEntityTable" author="benmalik">
-        <createTable tableName="fileEntity">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="fileEntity-PK" />
-            </column>
-            <column name="name" type="VARCHAR(255)">
-                <constraints unique="true" />
-            </column>
-            <column name="size" type="BIGINT"></column>
-            <column name="type" type="varchar(255)"></column>
-            <column name="content" type="nvarchar(64)"></column>
-        </createTable>
-    </changeSet> -->
-
-
-
-
-
-    <!-- Working -->
-    <!-- <changeSet id="create-product-table" author="benmalik">
-        <createTable tableName="product">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="productPK" />
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="code" type="varchar(5)">
-                <constraints nullable="false" />
-            </column>
-            <column name="description" type="varchar(255)" />
-
-            <column name="price" type="FLOAT">
-                <constraints nullable="false" />
-            </column>
-            <column name="BOX_CODE" type="VARCHAR(10)">
-                <constraints nullable="true" />
-            </column>
-            <column name="COUNT" type="INTEGER">
-                <constraints nullable="false" />
-            </column>
-        </createTable>
-    </changeSet>
-    <changeSet id="create-category-and-brand-for-product" author="ben-malik">
-
-        <createTable tableName="brand">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" />
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-
-            <column name="product_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_product_brand" references="product(id)" />
-            </column>
-        </createTable>
-
-        <createTable tableName="category">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" />
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="product_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_product_category" references="product(id)" />
-            </column>
-        </createTable>
-    </changeSet>
-
-
-    <changeSet id="add-image-column0-4144764" author="ben-malik">
-        <addColumn tableName="product">
-            <column name="picture" type="varchar(255)" />
-        </addColumn>
-    </changeSet>
-
-    <changeSet id="add-category-foreign-key-toproduct94" author="ben-malik">
-        <addColumn tableName="product">
-            <column name="brand_id" type="BIGINT">
-                <constraints nullable="true" foreignKeyName="fk_brand_product" references="brand(id)" />
-            </column>
-        </addColumn>
-    </changeSet>
-
-    <changeSet id="add-exchange-table0" author="benmalik">
-        <createTable tableName="exchange">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" primaryKeyName="exchangePK" />
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="amount" type="DECIMAL">
-                <constraints nullable="false" />
-            </column>
-        </createTable>
-    </changeSet>
-
-    <changeSet id="add-date-time-for-exchange43E3" author="benmalik">
-        <addColumn tableName="exchange">
-            <column name="created_at" type="DATETIME"></column>
-        </addColumn>
-    </changeSet>
-
-    <changeSet author="ben-malik" id="create-necessary-main-tables">
-        <createTable tableName="user">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" />
-            </column>
-            <column name="password" type="varchar(255)" />
-            <column name="username" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="surname" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="email" type="varchar(255)">
-                <constraints nullable="false" />
-            </column>
-            <column name="address_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_user_address" references="address(id)" />
-            </column>
-        </createTable>
-        <createTable tableName="address">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" />
-            </column>
-            <column name="street_address" type="varchar(255)" />
-            <column name="city" type="varchar(255)"></column>
-            <column name="country" type="varchar(255)"></column>
-            <column name="zip_code" type="varchar(255)"></column>
-        </createTable>
-        <createTable tableName="user_role">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" />
-            </column>
-            <column name="role_id" type="BIGINT">
                 <constraints nullable="false" foreignKeyName="fk_role_user_role" references="role(id)" />
             </column>
             <column name="user_id" type="BIGINT">
@@ -324,28 +56,7 @@ http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
             <column name="user_role_id" type="BIGINT">
                 <constraints nullable="false" foreignKeyName="fk_role_user_role" references="user_role(id)" />
             </column>
-        </createTable>
+        </createTable> -->
     </changeSet>
-
-    <changeSet id="add-box-code" author="ben-malik">
-        <addColumn tableName="user">
-            <column name="address_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_user_address" references="address(id)" />
-            </column>
-        </addColumn>
-        <renameColumn columnDataType="varchar(255)" newColumnName="firstname" oldColumnName="name" remarks="A String" schemaName="public" tableName="user" />
-
-        <createTable tableName="user_role">
-            <column autoIncrement="true" name="id" type="BIGINT">
-                <constraints primaryKey="true" />
-            </column>
-            <column name="role_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_role_user_role" references="role(role_id)" />
-            </column>
-            <column name="user_id" type="BIGINT">
-                <constraints nullable="false" foreignKeyName="fk_user_user_role" references="user(id)" />
-            </column>
-        </createTable>
-    </changeSet> -->
 
 </databaseChangeLog>
