@@ -4,7 +4,15 @@
 <head th:replace="fragments/header :: client-header" />
 
 
-<body>
-	<h1>Notlarim</h1>
+<body class="d-flex flex-column">
+	<div th:replace="fragments/header :: navbar"> </div>
+
+	<div class="container page-content">
+
+		<!--Addd code here -->
+	</div>
+
+	<div th:replace="fragments/header :: body-scripts"> </div>
 </body>
+
 </html>
