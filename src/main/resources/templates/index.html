@@ -7,9 +7,37 @@
 <body class="d-flex flex-column">
 	<div th:replace="fragments/header :: navbar"> </div>
 
-	<div class="container page-content">
+	<div class="container page-content ">
 
-		<!--Addd code here -->
+		<div class="row mainContainer" style="margin-top: 150px;">
+			<div class="col-sm-4">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Special title treatment</h5>
+				  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+				  <a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-4">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Special title treatment</h5>
+				  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+				  <a href="#" class="btn btn-primary">Go somewhere</a>
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-4">
+				<div class="card">
+				  <div class="card-body">
+					<h5 class="card-title">Special title treatment</h5>
+					<p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+					<a href="#" class="btn btn-primary">Go somewhere</a>
+				  </div>
+				</div>
+			  </div>
+		  </div>
 	</div>
 
 	<div th:replace="fragments/header :: body-scripts"> </div>
