@@ -86,31 +86,27 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto font-weight-bold">
-					<li class="nav-item">
-						<a class="nav-link" th:href="@{/}"> Home</a>
+					<li class="nav-item active">
+						<a class="nav-link" th:href="@{/all}"> All Notes </a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" th:href="@{/store}"> Store </a>
+						<a class="nav-link" th:href="@{/all}"> Business </a>
 					</li>
-					<!-- <li class="nav-item">          
-            <a class="nav-link" th:href="@{/shopping-cart/cart}">Shopping Cart 
-            <span class="badge badge-primary badge-pill" style="vertical-align: top;" th:text="${shoppingCartItemNumber} > 0 ? ${shoppingCartItemNumber}"></span></a>
-          </li>-->
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/all}"> Social </a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" th:href="@{/all}"> Important </a>
+					</li>
 				</ul>
 				<ul class="navbar-nav ml-auto font-weight-bold">
 					<li class="nav-item">
-						<a class="nav-link" sec:authorize="isAnonymous()" th:href="@{/login}">Login </a>
+						<a class="nav-link" th:href="@{/add}">Add Notes </a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/myProfile}">My Account</a>
+						<a class="nav-link" th:href="@{/add}">Login </a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}"> Log Out </a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link text-dark" sec:authorize="hasRole('ADMIN')" th:href="@{/admin}"> ADMIN
-							PORTAL</a>
-					</li>
+					
 				</ul>
 			</div>
 		</nav>
