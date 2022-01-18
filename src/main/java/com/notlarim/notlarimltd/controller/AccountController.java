@@ -3,7 +3,6 @@ package com.notlarim.notlarimltd.controller;
 import org.springframework.stereotype.Controller;
 
 import java.security.Principal;
-import java.time.LocalTime;
 import java.util.Arrays;
 
 import javax.validation.Valid;
@@ -22,13 +21,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.notlarim.notlarimltd.model.Address;
-import com.notlarim.notlarimltd.model.Exchange;
 import com.notlarim.notlarimltd.model.User;
-import com.notlarim.notlarimltd.service.ExchangeManager;
 import com.notlarim.notlarimltd.service.UserManager;
 import com.notlarim.notlarimltd.service.UserSecurityManager;
 
-import utility.GreetingUtility;
 import utility.SecurityUtility;
 
 @Controller
@@ -39,9 +35,6 @@ public class AccountController {
 	
 	@Autowired
 	private UserSecurityManager userSecurityManager;
-	
-	@Autowired
-	private ExchangeManager exchangeManager;
 
 	@RequestMapping("/login")
 	public String log(Model model) {
