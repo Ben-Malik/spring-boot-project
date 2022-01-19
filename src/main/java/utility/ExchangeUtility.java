@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.Scheduled;
+// import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.scheduling.concurrent.ConcurrentTaskScheduler;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -29,7 +29,7 @@ public class ExchangeUtility {
 	@Autowired
 	private ExchangeManager manager;
 
-    @Scheduled(cron="0 0/3 * * * ?")
+    // @Scheduled(cron="0 0/3 * * * ?")
 	public void getTheExchanges() throws InterruptedException {
 
 		String urlEuro = "https://free.currconv.com/api/v7/convert?q=EUR_TRY&compact=ultra&apiKey=ac495209d6cdd9e87736";
