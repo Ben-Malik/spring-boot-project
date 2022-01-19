@@ -15,6 +15,10 @@ public class BaseObject {
 
     private Date UpdatedAt;
 
+    private User creator;
+
+    private User updater;
+
     public Date getCreatedAt() {
         return createdAt;
     }
@@ -29,6 +33,22 @@ public class BaseObject {
 
     public void setUpdatedAt(Date updatedAt) {
         UpdatedAt = updatedAt;
+    }
+
+    public User getCreator() {
+        return creator;
+    }
+
+    public void setCreator(User creator) {
+        this.creator = creator;
+    }
+
+    public User getUpdater() {
+        return updater;
+    }
+
+    public void setUpdater(User updater) {
+        this.updater = updater;
     }
 
 }
