@@ -17,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-public class Note {
+public class Note extends BaseObject {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

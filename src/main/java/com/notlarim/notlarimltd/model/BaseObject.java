@@ -6,18 +6,22 @@ import lombok.NoArgsConstructor;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class BaseObject {
 
+    @Column(name = "created_at")
     private Date createdAt;
 
+    @Column(name = "updated_at")
     private Date UpdatedAt;
 
-    private User creator;
+    private Long creator;
 
-    private User updater;
+    private Long updater;
 
     public Date getCreatedAt() {
         return createdAt;
@@ -35,19 +39,19 @@ public class BaseObject {
         UpdatedAt = updatedAt;
     }
 
-    public User getCreator() {
+    public Long getCreator() {
         return creator;
     }
 
-    public void setCreator(User creator) {
+    public void setCreator(Long creator) {
         this.creator = creator;
     }
 
-    public User getUpdater() {
+    public Long getUpdater() {
         return updater;
     }
 
-    public void setUpdater(User updater) {
+    public void setUpdater(Long updater) {
         this.updater = updater;
     }
 
