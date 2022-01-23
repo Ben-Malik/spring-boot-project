@@ -4,18 +4,27 @@ import java.util.List;
 
 import com.notlarim.notlarimltd.enums.Category;
 import com.notlarim.notlarimltd.model.Note;
+import com.notlarim.notlarimltd.repository.NoteRepository;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * An implementation to the {@linkplain NoteManager} interface.
  * 
  * @author ben-malik
  */
+@Service
+@Transactional(readOnly = true)
 public class NoteManagerImpl implements NoteManager {
+
+    @Autowired
+    private NoteRepository noteRepository;
 
     @Override
     public Note getById(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+        return noteRepository.getById(id);
     }
 
     @Override
@@ -26,20 +35,18 @@ public class NoteManagerImpl implements NoteManager {
 
     @Override
     public List<Note> getAllNotes() {
-        // TODO Auto-generated method stub
-        return null;
+        return noteRepository.findAll();
     }
 
     @Override
     public Note saveNote(Note newNote) {
-        // TODO Auto-generated method stub
-        return null;
+        return noteRepository.save(newNote);
     }
 
     @Override
-    public Note deleteNote(Long id) {
-        // TODO Auto-generated method stub
-        return null;
+    @Transactional(readOnly = false)
+    public void deleteNote(Note note) {
+        noteRepository.delete(note);
     }
     
 }

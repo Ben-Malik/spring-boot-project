@@ -40,10 +40,9 @@ public interface NoteManager {
     Note saveNote(Note newNote);
 
     /**
-     * Deletes the note having the given id if one exists.
-     * @param id The id of the note to be deleted.
-     * @return The note just deleted.
+     * Deletes the given note from the database if found
+     * @param note The note to be deleted.
      */
-    Note deleteNote(Long id);
+    void deleteNote(Note note);
 
 }
