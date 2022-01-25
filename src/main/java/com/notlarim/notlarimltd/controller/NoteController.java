@@ -44,7 +44,7 @@ public class NoteController {
     @GetMapping("note/add")
     public String addNote(Model model, Note note) {
 
-        return "note/add";
+        return "noteForm";
     }
 
     @PostMapping("/note/add")
