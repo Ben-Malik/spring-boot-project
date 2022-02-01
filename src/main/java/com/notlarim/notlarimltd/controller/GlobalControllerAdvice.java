@@ -18,27 +18,11 @@ public class GlobalControllerAdvice {
 
 	public static final String DEFAULT_ERROR_VIEW = "error";
 	
-//	@Autowired
-//	private ShoppingCartService shoppingCartService;
-
 	@InitBinder
 	public void initBinder(WebDataBinder dataBinder) {
 		StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}	
-//	
-//	@ModelAttribute
-//	public void populateModel(Model model) {	
-//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//		if (auth != null && auth.isAuthenticated() && !(auth instanceof AnonymousAuthenticationToken)) {				
-//			User user =  (User) auth.getPrincipal(); 
-//			if (user != null) {
-//				model.addAttribute("shoppingCartItemNumber", shoppingCartService.getItemsNumber(user) );
-//			}
-//		} else { 
-//			model.addAttribute("shoppingCartItemNumber", 0);
-//		} 
-//	}
 	
 	@ExceptionHandler(value = Exception.class)
 	public ModelAndView defaultErrorHandler(HttpServletRequest req, Exception e) throws Exception {

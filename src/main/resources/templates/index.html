@@ -3,39 +3,16 @@
 
 <head th:replace="fragments/header :: client-header" />
 
-
 <body class="d-flex flex-column">
-	<div th:replace="fragments/header :: navbar"> </div>
 
 	<div class="container page-content ">
-
-		<div class="row" style="margin-top: 150px;">
-			
-			<table class="table">
-				<thead>
-					<tr>
-						<th> Title </th>
-						<th> Content </th>
-						<th> Category </th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr th:if="${allNotes.empty}">
-						<td colspan="2"> No Drivers Available </td>
-					</tr>
-					<tr th:each="note : ${allNotes}">
-						<td><span th:text="${note.title}"> Title </span></td>
-						<td><span th:text="${note.content}"> Content </span></td>
-						<td><span th:text="${note.category}"> Category </span></td>
-					</tr>
-				</tbody>
-			</table>
+		<div style="text-align: center; margin-top: 30px;">
+			<h2 th:text="${message}"></h2>
+			<a target="new" th:href="${github}" th:text="${github}"></a>
 		</div>
-		
 	</div>
-
-	<div th:replace="fragments/header :: body-scripts"> </div>
 	
+	<div th:replace="fragments/header :: body-scripts"> </div>
 </body>
 
 </html>
