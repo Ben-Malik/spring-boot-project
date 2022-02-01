@@ -1,5 +1,15 @@
 # A boilerplate code for a spring boot Java web application
  Java 17, Spring boot 2.5.4, Postgresql
+ 
+ # Teck Stack
+ 1. Java 17
+ 2. Spring Boot 2.5.4
+ 3. Maven
+ 4. Hibernate
+ 5. Liquibase
+ 6. Postgresql
+ 7. Thymeleaf
+ 8. Bootstrap
 
 ### To run the app 
 
