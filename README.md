@@ -1,13 +1,7 @@
 # A boilerplate code for a spring boot Java web application 
  # Teck Stack
- 1. Java 17
- 2. Spring Boot 2.5.4
- 3. Maven
- 4. Hibernate
- 5. Liquibase
- 6. Postgresql
- 7. Thymeleaf
- 8. Bootstrap
+ 1. **Backend**: Java 17, Spring Boot, Maven, Hibernate, Liquibase, Postgresql.
+ 2. **Frontend**: Thymeleaf, JavaScript, Bootstrap, CSS.
 
 ### To run the app 
 
