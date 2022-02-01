@@ -1,6 +1,4 @@
-# A boilerplate code for a spring boot Java web application
- Java 17, Spring boot 2.5.4, Postgresql
- 
+# A boilerplate code for a spring boot Java web application 
  # Teck Stack
  1. Java 17
  2. Spring Boot 2.5.4
