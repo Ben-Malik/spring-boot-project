@@ -1,1 +1,1 @@
-# Notlarim | A note tacking and tracking platform using Java Spring Boot & Thumeleaf.
+# A boilerplate code for a spring boot Java web application; Java 17, Spring boot 2.5.4
