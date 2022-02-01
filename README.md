@@ -1,4 +1,5 @@
-# A boilerplate code for a spring boot Java web application; Java 17, Spring boot 2.5.4
+# A boilerplate code for a spring boot Java web application
+ Java 17, Spring boot 2.5.4, Postgresql
 
 ### To run the app 
 
@@ -22,3 +23,6 @@ $ ./mvnw clean install
 ```
 $ ./mvnw spring-boot:run
 ```
+
+Your app is running on Port ``` 8085 ```
+Go to [localhost:8085](http://localhost:8085)
